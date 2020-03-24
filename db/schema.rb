@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2020_03_24_161536) do
+=======
 ActiveRecord::Schema.define(version: 2020_03_24_175652) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +46,17 @@ ActiveRecord::Schema.define(version: 2020_03_24_175652) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fixers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.time "start_time"
+    t.time "end_time"
+    t.boolean "status", default: false
+    t.integer "unit_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fixers_on_user_id"
+  end
+
   create_table "problems", force: :cascade do |t|
     t.string "content"
     t.bigint "category_id"
@@ -67,5 +82,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_175652) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "fixers", "users"
   add_foreign_key "problems", "categories"
 end

@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     resources :problems, only: [:new, :create, :index]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :problems, only: [:edit, :show, :update, :destroy]
+<<<<<<< HEAD
+  resources :users, only: [:show] do
+    resources :fixers, only: [:new, :create, :destroy]
+  end
+
+  resources :problems, only: [:edit, :show, :update, :destroy]
 
   resources :users, only: [:show]
 end
