@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_161536) do
     t.bigint "user_id"
     t.time "start_time"
     t.time "end_time"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.integer "unit_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
