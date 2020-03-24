@@ -77,7 +77,7 @@ puts "-" * 60
 
 users_data.each do |user_data|
   user = User.create!(user_data)
-  puts "Created user with email:#{user.email}"
+  puts "Created user with email: #{user.email}"
 end
 puts "-" * 60
 puts "Done creating users"
@@ -89,7 +89,7 @@ puts "-" * 60
 
 categories_data.each do |category_data|
   category = Category.create!(category_data)
-  puts "Created catetgory with name:#{category.name}"
+  puts "Created catetgory with name: #{category.name}"
 end
 
 puts "-" * 60
