@@ -13,6 +13,7 @@ users_data = [
     password: "123456",
     first_name: "Emiliano",
     last_name: "Dogaru",
+    address: "Barcelona, Arizala 57",
     phone_number: Faker::PhoneNumber.phone_number
   },
 
@@ -21,6 +22,7 @@ users_data = [
     password: "123456",
     first_name: "Sang-Soo",
     last_name: "Ra",
+    address: "Barcelona, Simo Oller 2",
     phone_number: Faker::PhoneNumber.phone_number
   },
 
@@ -29,6 +31,7 @@ users_data = [
     password: "123456",
     first_name: "Leon",
     last_name: "Ellerbrock",
+    address: "Barcelona, Calvet 58",
     phone_number: Faker::PhoneNumber.phone_number
   },
 
@@ -37,6 +40,7 @@ users_data = [
     password: "123456",
     first_name: "Abderrahim",
     last_name: "Nadifi",
+    address: "Barcelona, Grassot 101",
     phone_number: Faker::PhoneNumber.phone_number
   },
 ]
