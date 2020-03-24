@@ -1,2 +1,7 @@
-<p>User: <%= @user %></p>
+<p><strong>User details</strong></p>
+<p>Name: <%= current_user.full_name %></p>
+<p>Phone number: <%= current_user.phone_number %></p>
+<p>Email: <%= current_user.email %></p>
+<p>Address: <%= current_user.address %></p>
+<br>
 <%= link_to("Edit account info", edit_user_registration_path) %>

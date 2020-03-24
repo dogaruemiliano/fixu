@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, format: { with: /\d+/}
 
   # has_one :fixers # is this correct
+
+  def full_name
+    return "#{first_name} #{last_name}"
+  end
 end
