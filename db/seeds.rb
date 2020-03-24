@@ -1,12 +1,6 @@
 require 'faker'
 
-puts "*" * 80
-puts "Seeding started"
-puts
-
-puts "-" * 80
-puts "Creating users"
-puts "-" * 80
+# Data used for seeding
 users_data = [
   {
     email: "emi@gmail.com",
@@ -45,14 +39,64 @@ users_data = [
   },
 ]
 
+categories_data = [
+  { name: "Dishwasher" },
+  { name: "Fridge" },
+  { name: "Washing Machine" },
+  { name: "Microwave Oven" },
+  { name: "Shower" },
+  { name: "Sink" },
+  { name: "Cooker" },
+  { name: "Oven" },
+  { name: "Cooker Hood" }
+
+]
+
+puts "*" * 60
+puts "Seeding started"
+puts
+
+puts "-" * 60
+puts "Destroying models"
+puts "-" * 60
+
+User.destroy_all
+puts "Destroyed all User models"
+
+Category.destroy_all
+puts "Destroyed all Category models"
+
+puts "-" * 60
+puts "Destroyed all previous models"
+puts "-" * 60
+puts
+
+puts "-" * 60
+puts "Creating users"
+puts "-" * 60
+
 users_data.each do |user_data|
   user = User.create!(user_data)
   puts "Created user with email:#{user.email}"
 end
-puts "-" * 80
+puts "-" * 60
 puts "Done creating users"
-puts "-" * 80
+puts "-" * 60
+puts
+puts "-" * 60
+puts "Creating categories"
+puts "-" * 60
+
+categories_data.each do |category_data|
+  category = Category.create!(category_data)
+  puts "Created catetgory with name:#{category.name}"
+end
+
+puts "-" * 60
+puts "Done creating categories"
+puts "-" * 60
+
 
 puts
 puts "Seeding ended"
-puts "*" * 80
+puts "*" * 60
