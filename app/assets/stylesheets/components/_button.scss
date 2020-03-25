@@ -1,57 +1,102 @@
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-}
-
-.btn-flat {
-  color: #FACF39;
-  padding: 8px 24px;
-  border-radius: 0 !important;
-  background: #4686A9;
-  transition: background 0.3s ease;
-}
-.btn-flat:hover {
-  color: #F7C931;
-  background: #3C7FA3;
-}
 .btn-logo {
-  color: #FACF39;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #04316C;
   padding: 8px 24px;
   border-radius: 0 !important;
-  background: #4686A9;
   transition: background 0.3s ease;
-  font-size: 24px;
+}
+
+// .btn-logo:hover {
+//   color: #F7C931;
+//   background: #3C7FA3;
+// }
+
+.btn-primary{
+  width: 348px;
   height: 55px;
-  font-weight: bold;
+  border-radius: 47px;
+  background: #04316C;
+  color: #FACF39;
 }
 
-.btn-logo:hover {
-  color: #F7C931;
-  background: #3C7FA3;
-}
-.btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
-  transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+
+.btn-chat-send{
+  background: #04316C;
+  color: #FACF39;
+  border-radius: 31px;
+  width: 186px;
+  height: 55px;
 }
 
-.btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
-  color: white;
-}
-.btn-fw {
-  width: 100%;
-}
+
+// Old components before Gus workshop :
+
+// .btn-primary:hover{
+//   background: #04316C;
+//   color: #FACF39;
+// }
+
+// .btn-logo {
+//   color: #FACF39;
+//   padding: 8px 24px;
+//   border-radius: 0 !important;
+//   background: #4686A9;
+//   transition: background 0.3s ease;
+//   font-size: 24px;
+//   height: 55px;
+//   font-weight: bold;
+// }
+
+// .btn-ghost {
+//   color: #4A4A4A;
+//   border: 1px solid #4A4A4A;
+//   padding: 8px 24px;
+//   border-radius: 50px;
+//   font-weight: lighter;
+//   opacity: 0.6;
+//   transition: opacity 0.3s ease;
+// }
+
+// .btn-ghost:hover {
+//   opacity: 1;
+// }
+
+// .btn-flat {
+//   color: #FACF39;
+//   padding: 8px 24px;
+//   border-radius: 0 !important;
+//   background: #4686A9;
+//   transition: background 0.3s ease;
+// }
+
+// .btn-flat:hover {
+//   color: #F7C931;
+//   background: #3C7FA3;
+// }
+
+
+// .btn-gradient {
+//   color: white;
+//   padding: 8px 24px;
+//   border-radius: 4px;
+//   font-weight: bold;
+//   background: linear-gradient(#167FFB, #0F60C4);
+//   transition: background 0.3s ease;
+//   border: 1px solid #0F60C4;
+// }
+
+// .btn-gradient:hover {
+//   background: linear-gradient(#147EFF, #0F67DA);
+//   color: white;
+// }
+
+// .btn-fw {
+//   width: 100%;
+// }
