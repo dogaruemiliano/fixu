@@ -1,6 +1,4 @@
 class Category < ApplicationRecord
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  has_many :problems
-
+  validates :name, presence: true, uniqueness: true
+  has_many :problems, dependent: :destroy
 end

@@ -3,4 +3,5 @@ class Fixer < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
+  validates :unit_price, presence: true, numericality: true
 end

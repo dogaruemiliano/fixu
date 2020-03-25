@@ -14,7 +14,7 @@ users_data = [
   {
     email: "sang@gmail.com",
     password: "123456",
-    first_name: "Sang-Soo",
+    first_name: "Sangsoo",
     last_name: "Ra",
     address: "Barcelona, Simo Oller 2",
     phone_number: Faker::PhoneNumber.phone_number
@@ -49,13 +49,13 @@ fixers_data = [
   {
     start_time: Time.parse("9:00"),
     end_time: Time.parse("18:00"),
-    unit_price: 10
+    unit_price: 20
   },
 
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("19:00"),
-    unit_price: 10
+    unit_price: 20
   }
 ]
 
@@ -69,7 +69,6 @@ categories_data = [
   { name: "Cooker" },
   { name: "Oven" },
   { name: "Cooker Hood" }
-
 ]
 
 puts "*" * 60
