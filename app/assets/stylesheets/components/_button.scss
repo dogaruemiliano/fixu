@@ -15,29 +15,28 @@
 .btn-flat {
   color: #FACF39;
   padding: 8px 24px;
-  border-radius: 4px;
-  background-color: #4686A9;
+  border-radius: 0 !important;
+  background: #4686A9;
   transition: background 0.3s ease;
 }
-
 .btn-flat:hover {
-  background: #4686A9;
-  color: white;
+  color: #F7C931;
+  background: #3C7FA3;
 }
 .btn-logo {
   color: #FACF39;
   padding: 8px 24px;
-  background-color: #4686A9;
+  border-radius: 0 !important;
+  background: #4686A9;
   transition: background 0.3s ease;
   font-size: 24px;
   height: 55px;
   font-weight: bold;
-  border-radius: 0 !important;
 }
 
 .btn-logo:hover {
-  background: #4686A9;
-  color: white;
+  color: #F7C931;
+  background: #3C7FA3;
 }
 .btn-gradient {
   color: white;

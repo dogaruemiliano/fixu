@@ -16,10 +16,16 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :first_name,
-                      required: true, style: 'width:40%;' %>
-          <%= f.input :last_name,
-                      required: true, style: 'width:40%;' %>
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :first_name,
+                      required: true %>
+            </div>
+            <div class="col-6">
+              <%= f.input :last_name,
+                      required: true %>
+            </div>
+          </div>
           <%= f.input :address,
                       required: true %>
           <%= f.input :phone_number,

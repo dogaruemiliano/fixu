@@ -10,13 +10,13 @@ class User < ApplicationRecord
   validates :address, presence: true, length: {minimum: 7, maximum: 40}
   validates :phone_number, presence: true, format: { with: /\d+/}
 
-  # has_one :fixers # is this correct
+  has_one :fixer # is this correct
 
   def full_name
     return "#{first_name} #{last_name}"
   end
 
-  def is_fixer?
-    return Fixer.find(self.id)
-  end
+  # def is_fixer?
+  #   return Fixer.find(self.id)
+  # end
 end

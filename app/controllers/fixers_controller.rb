@@ -1,4 +1,5 @@
 class FixersController < ApplicationController
+  before_action :set_fixer, only: [:destroy]
   def new
     @fixer = Fixer.new()
     @user = current_user
@@ -9,19 +10,22 @@ class FixersController < ApplicationController
     @fixer.user = current_user
 
     if @fixer.save!
-      redirect_to user_path(current_user.id)
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def destroy
-    fixer = Fixer.find(params[:id])
-    fixer.destroy!
-    redirect_to user_path(current_user.id)
+    @fixer.destroy!
+    redirect_to root_path
   end
 
   private
+
+  def set_fixer
+    @fixer = Fixer.find(params[:id])
+  end
 
   def fixer_params
     params.require(:fixer).permit(:start_time, :end_time, :unit_price)
