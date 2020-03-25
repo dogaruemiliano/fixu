@@ -1,3 +1,10 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  margin-top: 32px;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -11,4 +18,29 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-vertical {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+}
+
+.card-vertical > img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-vertical h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.card-vertical p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
 }
