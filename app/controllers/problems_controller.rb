@@ -3,7 +3,9 @@ class ProblemsController < ApplicationController
   before_action :set_category, only: [:new, :create]
 
   def index
-    @problems = Problem.all
+    category = Category.find(params[:category_id])
+    @appointment = Appointment.new
+    @problems = category.problems
   end
 
   def show

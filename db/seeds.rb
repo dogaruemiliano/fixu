@@ -71,6 +71,10 @@ categories_data = [
   { name: "Cooker Hood" }
 ]
 
+problems_data = {
+  "Dishwasher" => ["leaking", "electrical", "other"]
+}
+
 puts "*" * 60
 puts "Seeding started"
 puts "=" * 60
@@ -125,11 +129,22 @@ puts "-" * 30
 categories_data.each do |category_data|
   category = Category.create!(category_data)
   puts "Created catetgory with name: #{category.name}"
+
+  if problems_data[category.name]
+    puts "Creating problem"
+    problems_data[category.name].each do |problem|
+      Problem.create(category_id: category.id, content: problem)
+    end
+    puts "Done creating problem"
+
+  end
 end
 
 puts "-" * 30
 puts "Done creating categories"
 puts "-" * 60
+
+
 
 
 puts "=" * 60
