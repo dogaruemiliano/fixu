@@ -2,6 +2,4 @@ class Appointment < ApplicationRecord
   belongs_to :fixer
   belongs_to :user
   belongs_to :problem
-
-  validates :time, presence: true, as: :time
 end
