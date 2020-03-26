@@ -1,6 +1,6 @@
 <%= simple_form_for(@appointment) do |f| %>
   <%= f.collection_radio_buttons :problem_id, @problems, :id, :content %>
-  <%= f.text :comment %>
+  <%= f.text :comment, placeholder: "Tell us more about your problem" %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
   <%= f.button :submit, "Next" %>
 <% end %>
