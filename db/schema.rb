@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_26_113029) do
-=======
-ActiveRecord::Schema.define(version: 2020_03_25_110139) do
->>>>>>> f55da3e754f64e724e565b8d8bb4c17ae2e3f1d2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_110139) do
   end
 
   create_table "appointments", force: :cascade do |t|
-<<<<<<< HEAD
     t.datetime "time"
     t.bigint "fixer_id"
     t.bigint "user_id"
@@ -54,10 +49,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_110139) do
     t.index ["fixer_id"], name: "index_appointments_on_fixer_id"
     t.index ["problem_id"], name: "index_appointments_on_problem_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
-=======
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> f55da3e754f64e724e565b8d8bb4c17ae2e3f1d2
   end
 
   create_table "categories", force: :cascade do |t|
