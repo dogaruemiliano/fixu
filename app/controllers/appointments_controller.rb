@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create]
+  skip_before_action :authenticate_user!, only: [:time_location]
+
   before_action :set_appointment, only: [:show]
 
   def show
