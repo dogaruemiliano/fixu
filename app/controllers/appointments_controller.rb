@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:time_location]
+  skip_before_action :authenticate_user!, only: [:time_location, :set_fixer]
 
   before_action :set_appointment, only: [:show]
 
@@ -10,8 +10,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
   end
 
-  def create
-
+  def set_fixer
+    # the step where we print the fixers
+    raise
   end
 
   private
