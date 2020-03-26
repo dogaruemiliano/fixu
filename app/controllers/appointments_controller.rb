@@ -23,8 +23,6 @@ class AppointmentsController < ApplicationController
   def update
     if @appointment.update(appointment_params)
       if @appointment.fixer
-        price = @appointment.fixer.unit_price * @appointment.problem.duration
-        @appointment.price = price
         redirect_to appointment_path(@appointment)
       else
         redirect_to appointment_fixer_path(@appointment)
