@@ -1,0 +1,13 @@
+.dots {
+  display: flex;
+  justify-content: space-between;
+}
+.dot {
+  background: lightgrey;
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+  &.active {
+    background: $dark-blue;
+  }
+}
