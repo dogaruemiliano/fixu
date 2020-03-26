@@ -67,8 +67,7 @@ categories_data = [
   { name: "Shower" },
   { name: "Sink" },
   { name: "Cooker" },
-  { name: "Oven" },
-  { name: "Cooker Hood" }
+  { name: "Oven" }
 ]
 
 puts "*" * 60
