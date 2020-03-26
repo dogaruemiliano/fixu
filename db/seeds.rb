@@ -113,7 +113,8 @@ puts "Creating categories"
 puts "-" * 30
 categories_data = [
   { name: "Dishwasher",
-    problems: [ "Cleaning is not working",
+    problems: [
+      "Cleaning is not working",
       "Dishwasher doesn't start",
       "Dishwasher makes noise",
       "Water doesn't drain",
@@ -121,7 +122,8 @@ categories_data = [
       "Door Doesn't Latch"]
     },
   { name: "Fridge",
-    problems: [ "Water Leaking on the Floor",
+    problems: [
+      "Water Leaking on the Floor",
       "Freezer Isn't Cold Enough.",
       "Unit is Cycling Too Often",
       "Fresh Compartment Is Warming Up",
@@ -129,7 +131,8 @@ categories_data = [
       "Refrigerator is Freezing Food",]
     },
   { name: "Washing Machine",
-    problems: [ "The machine won't fill with water",
+    problems: [
+      "The machine won't fill with water",
       "The drum doesn't turn",
       "The machine stops mid-cycle",
       "The washing machine is noisy",
@@ -137,7 +140,8 @@ categories_data = [
       "The washing machine won't spin",]
     },
   { name: "Microwave Oven",
-    problems: [ "Microwave does not heat",
+    problems: [
+      "Microwave does not heat",
       "Microwave runs and then stops",
       "Microwave buttons do not work.",
       "Microwave plate does not spin",
@@ -145,15 +149,17 @@ categories_data = [
       "Sparking inside microwave",]
     },
   { name: "Shower" ,
-    problems: [ "Low water pressure.",
+    problems: [
+      "Low water pressure.",
       "Infrequent bursts of scalding hot water.",
-      "Blown pressure relief device",
       "Noisy shower",
+      "Blown pressure relief device",
       "Water is too cold",
       "Water is leaking from the wall",]
     },
   { name: "Sink" ,
-    problems: [ "Clogged Kitchen Sink",
+    problems: [
+      "Clogged Kitchen Sink",
       "Low Water Pressure.",
       "Leaky Kitchen Faucet",
       "Clogged Drain Lines",
@@ -161,7 +167,8 @@ categories_data = [
       "Faucet is broken",]
     },
   { name: "Oven" ,
-    problems: [ "My Oven does not Heat Up",
+    problems: [
+      "My Oven does not Heat Up",
       "My oven constantly overheats",
       "My oven door does not close properly",
       "My Oven burns kitchen units",
@@ -169,9 +176,10 @@ categories_data = [
       "My oven fan continues to run",]
     },
   { name: "Cooker" ,
-    problems: [ "One or more elements do not heat up",
-      "Thermostat trips when using grill",
+    problems: [
+      "One or more elements do not heat up",
       "No light",
+      "Thermostat trips when using grill",
       "Noisy fan",
       "Sparks or burning smell",
       "No functions",]

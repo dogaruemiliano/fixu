@@ -1,10 +1,26 @@
-<p>yes</p>
-<% @fixers.drop(1).each do |fixer| %>
-  <p><%= fixer.user.full_name %>
-  <%= simple_form_for @appointment do |f| %>
-    <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
-    <%= f.input :price, input_html: {value: fixer.unit_price * @appointment.problem.duration}, as: :hidden %>
-    <%= f.submit "Select", class: 'btn btn-gradient'%>
-  <% end %>
-  </p>
-<% end %>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">Top Fixers</h2>
+    </div>
+    <div class="col-6 offset-3">
+      <div class="dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <% @fixers.each do |fixer| %>
+        <p><%= fixer.user.full_name %>
+        <%= simple_form_for @appointment do |f| %>
+          <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
+          <%= f.input :price, input_html: {value: fixer.unit_price * @appointment.problem.duration}, as: :hidden %>
+          <%= f.submit "Select", class: 'btn btn-gradient'%>
+        <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
-    if @appointment.save!
+    if @appointment.save
       redirect_to appointment_preference_path(@appointment)
     else
       render :new
