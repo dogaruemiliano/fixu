@@ -59,21 +59,6 @@ fixers_data = [
   }
 ]
 
-categories_data = [
-  { name: "Dishwasher" },
-  { name: "Fridge" },
-  { name: "Washing Machine" },
-  { name: "Microwave Oven" },
-  { name: "Shower" },
-  { name: "Sink" },
-  { name: "Cooker" },
-  { name: "Oven" }
-]
-
-problems_data = {
-  "Dishwasher" => ["leaking", "electrical", "other"]
-}
-
 puts "*" * 60
 puts "Seeding started"
 puts "=" * 60
@@ -115,6 +100,7 @@ User.first(3).each do |user|
   fixer = Fixer.new(fixers_data[data_index])
   fixer.user = user
   fixer.save!
+  data_index += 1
   puts "Created fixer from user with email: #{fixer.user.email}"
 end
 puts "-" * 30
@@ -122,21 +108,87 @@ puts "Done creating fixer"
 puts "-" * 60
 puts "=" * 60
 puts "-" * 60
+
 puts "Creating categories"
 puts "-" * 30
+categories_data = [
+  { name: "Dishwasher",
+    problems: [ "Cleaning is not working",
+      "Dishwasher doesn't start",
+      "Dishwasher makes noise",
+      "Water doesn't drain",
+      "Water leaks from Dishwasher",
+      "Door Doesn't Latch"]
+    },
+  { name: "Fridge",
+    problems: [ "Water Leaking on the Floor",
+      "Freezer Isn't Cold Enough.",
+      "Unit is Cycling Too Often",
+      "Fresh Compartment Is Warming Up",
+      "Sheet of Ice on the Freezer Floor",
+      "Refrigerator is Freezing Food",]
+    },
+  { name: "Washing Machine",
+    problems: [ "The machine won't fill with water",
+      "The drum doesn't turn",
+      "The machine stops mid-cycle",
+      "The washing machine is noisy",
+      "Water not draining from washing machine",
+      "The washing machine won't spin",]
+    },
+  { name: "Microwave Oven",
+    problems: [ "Microwave does not heat",
+      "Microwave runs and then stops",
+      "Microwave buttons do not work.",
+      "Microwave plate does not spin",
+      "Microwave light-bulb does not turn on",
+      "Sparking inside microwave",]
+    },
+  { name: "Shower" ,
+    problems: [ "Low water pressure.",
+      "Infrequent bursts of scalding hot water.",
+      "Blown pressure relief device",
+      "Noisy shower",
+      "Water is too cold",
+      "Water is leaking from the wall",]
+    },
+  { name: "Sink" ,
+    problems: [ "Clogged Kitchen Sink",
+      "Low Water Pressure.",
+      "Leaky Kitchen Faucet",
+      "Clogged Drain Lines",
+      "Hot water is not working",
+      "Faucet is broken",]
+    },
+  { name: "Oven" ,
+    problems: [ "My Oven does not Heat Up",
+      "My oven constantly overheats",
+      "My oven door does not close properly",
+      "My Oven burns kitchen units",
+      "My Oven Emits Loud Sounds",
+      "My oven fan continues to run",]
+    },
+  { name: "Cooker" ,
+    problems: [ "One or more elements do not heat up",
+      "Thermostat trips when using grill",
+      "No light",
+      "Noisy fan",
+      "Sparks or burning smell",
+      "No functions",]
+    }
+]
 
 categories_data.each do |category_data|
-  category = Category.create!(category_data)
+  category = Category.create!(name: category_data[:name])
   puts "Created catetgory with name: #{category.name}"
-
-  if problems_data[category.name]
-    puts "Creating problem"
-    problems_data[category.name].each do |problem|
-      Problem.create(category_id: category.id, content: problem)
-    end
-    puts "Done creating problem"
-
+  puts "-" * 30
+  puts "Creating problems for category: #{category.name}"
+  category_data[:problems].each do |content|
+    problem = Problem.create!(content: content, duration: rand(1..5), category: category)
+    problem.save!
   end
+  puts "-" * 30
+  puts "Done creating problems for category: #{category.name}"
 end
 
 puts "-" * 30
