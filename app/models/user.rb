@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :address, presence: true, length: {minimum: 7, maximum: 40}
   validates :phone_number, presence: true, format: { with: /\d+/}
 
-  has_one :fixer # is this correct
+  has_one :fixer, dependent: :destroy
   has_many :appointments
 
   def full_name
