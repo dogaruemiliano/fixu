@@ -1,0 +1,8 @@
+<p>yes</p>
+<% @fixers.drop(1).each do |fixer| %>
+  <p><%= fixer.user.full_name %>
+  <%= simple_form_for @appointment do |f| %>
+          <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
+          <%= f.submit "Select", class: 'btn btn-gradient'%>
+        <% end %> </p>
+<% end %>

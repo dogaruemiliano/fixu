@@ -1,0 +1,14 @@
+<%= simple_form_for(@appointment) do |f| %>
+    <!-- We need to first check if there is a user first to avoid unknown function for nil class -->
+
+    <!-- <%= f.input :problem_id, as: :hidden, inser_html: { value: 1 } %> -->
+    <% if current_user && current_user.address %>
+
+        <%= f.input :address, input_html: { value: current_user.address } %>
+    <% else %>
+        <%= f.input :address, placeholder: "Your address" %>
+    <% end %>
+    <!-- we need to add a separate date field to appointments -->
+    <%= f.input :time, as: :datetime %>
+    <%= f.button :submit, "Find your fixer" %>
+<% end %>

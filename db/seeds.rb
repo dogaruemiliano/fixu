@@ -36,7 +36,7 @@ users_data = [
     last_name: "Nadifi",
     address: "Barcelona, Grassot 101",
     phone_number: Faker::PhoneNumber.phone_number
-  },
+  }
 ]
 
 fixers_data = [

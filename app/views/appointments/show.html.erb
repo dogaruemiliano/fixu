@@ -1,2 +1,7 @@
 <h1>Appointments#show</h1>
 <p>Find me in app/views/appointments/show.html.erb</p>
+<%= @appointment.time %>
+<%= @appointment.fixer.user.full_name %>
+<%= @appointment.user.full_name %>
+<%= @appointment.address %>
+<%= @appointment.problem.content %>
