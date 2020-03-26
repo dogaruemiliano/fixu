@@ -23,7 +23,6 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 16px;
 }
 
 .card-vertical > img {
@@ -32,11 +31,13 @@
   object-fit: cover;
 }
 
-.card-vertical h2 {
+.card-vertical h3 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  padding: 12px;
   text-align: center;
+  color: $dark-blue;
 }
 
 .card-vertical p {
