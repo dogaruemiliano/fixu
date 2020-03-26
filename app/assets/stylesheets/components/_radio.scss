@@ -1,0 +1,26 @@
+.problem-choices {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.problem-choice {
+  color: $dark-blue;
+  background: white;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid $dark-blue;
+  // flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $dark-blue;
+  color: $dark-yellow;
+  font-weight: 700;
+  opacity: 1;
+  }
+}

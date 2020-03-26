@@ -24,6 +24,15 @@
   background: #F4F4F4;
 }
 
-.btn-fw {
-  width: 100%;
+.btn-ghost {
+  color: $dark-blue;
+  border: 1px solid $dark-blue;
+  padding: 4px 12px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
