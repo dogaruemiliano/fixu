@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :appointments, only: [:create]
 
+  get "appointments/time_location", to: "appointments#time_location", as: :time_location
+
+  get "appointments/fixer", to: "appointments#set_fixer", as: :appointment_fixer
+
   resources :users, only: [:show] do
     resources :fixers, only: [:new, :create, :destroy]
   end

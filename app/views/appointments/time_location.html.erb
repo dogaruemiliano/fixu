@@ -1,0 +1,8 @@
+<%= simple_form_for(@appointment, as: :appointment, method: :get, url: appointment_fixer_url) do |f| %>
+    <% if current_user.address %>
+    <!-- Will raise error because :address is not part of the appointment model -->
+        <%= f.input :address, value: current_user.address %>
+    <% else %>
+        <%= f.input :address, placeholder: "Your address" %>
+    <% end %>
+<% end %>
