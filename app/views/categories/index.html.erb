@@ -8,11 +8,13 @@
     <% @categories.each do |category| %>
       <div class="card-vertical">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-vertical-infos">
-          <div>
-            <h3><%= category.name %></h3>
+        <a href=<%= category_problems_path(category) %>>
+          <div class="card-vertical-infos">
+            <div>
+              <h3><%= category.name %></h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     <% end %>
   </div>

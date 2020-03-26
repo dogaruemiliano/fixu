@@ -1,9 +1,13 @@
 class ProblemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :create]
 
   def index
-    @problems = Problem.all
+    category = Category.find(params[:category_id])
+    @appointment = Appointment.new
+    @problems = category.problems
   end
 
   def show

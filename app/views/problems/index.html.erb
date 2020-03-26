@@ -1,0 +1,6 @@
+<%= simple_form_for(@appointment, as: :appointment, method: :get, url: time_location_url) do |f| %>
+  <%= f.collection_radio_buttons :problem_id, @problems, :id, :content %>
+  <%= f.input :comment, as: :text, placeholder: "Tell us more about your problem" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+  <%= f.button :submit, "Next" %>
+<% end %>

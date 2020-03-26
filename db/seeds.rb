@@ -196,6 +196,8 @@ puts "Done creating categories"
 puts "-" * 60
 
 
+
+
 puts "=" * 60
 puts "Seeding ended"
 puts "*" * 60
