@@ -31,19 +31,22 @@
   opacity: .7;
   margin: 0;
 }
+
 .fixer-card {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
 }
+
 .fixer-card .fixer-avatar {
   position: relative;
   display: flex;
   align-items: flex-start;
 }
+
 .fixer-avatar > .avatar {
   margin-top: 6px;
   margin-right: 6px;
-  width: 80%;
+  width: 40%;
 }
 .fixer-price {
   position: absolute;
@@ -53,11 +56,19 @@
   background: $dark-blue;
   color: $dark-yellow;
   border-radius: 50%;
+  // width: 1.5rem;
+  // height: 1.5rem;
+  //top: 0;
+  //left: 45px;
+}
+
+.price-card {
   width: 1.5rem;
   height: 1.5rem;
-  top: 0;
   left: 45px;
+  top: 0;
 }
+
 .fixer-price p {
   margin: 0;
   font-size: 8px;
@@ -72,3 +83,42 @@
   display: flex;
   align-items: flex-start;
 }
+
+.fixer-card-appointment{
+  display: block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixer-card-appointment .fixer-avatar{
+  position: relative;
+  width: max-content;
+  margin: auto;
+}
+
+// .fixer-card-appointment-price{
+//   right: 24px;
+//   top: 26px;
+//   left: none;
+// }
+
+.price-appointment {
+  width: 2rem;
+  height: 2rem;
+  right: 18px;
+  top: 24px;
+}
+
+
+.fixer-card-appointment .avatar{
+  width: 200px;
+}
+
+.fixer-card-appointment h3{
+  color: $dark-blue;
+  font-weight: 700;
+}
+
+
+

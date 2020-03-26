@@ -36,3 +36,13 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-ghost-profile{
+  color: $dark-blue;
+  border: 1px solid $dark-blue;
+  padding: 4px 12px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  border-radius: 30px;
+}

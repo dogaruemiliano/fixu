@@ -36,7 +36,7 @@
 <div class="fixer-card">
   <div class="fixer-avatar">
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
-    <div class="fixer-price"><p>22&euro;<br>/h</p></div>
+    <div class="fixer-price price-card"><p>22&euro;<br>/h</p></div>
   </div>
   <div class="fixer-detail">
     <h3>Sandro Marques</h3>
@@ -57,6 +57,37 @@
   <div class="dot">6</div>
 </div>
 <div class="div" style="height: 60vh;"></div>
+
+<!-- Start Testing appointment page-->
+<div class="fixer-card-appointment">
+    <div class="fixer-avatar">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
+      <div class="fixer-price price-appointment"><p>22&euro;<br>/h</p></div>
+    </div>
+    <h3>Sandro Marques</h3>
+    <p>4,5 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+    <%= link_to 'Profile', '', class: 'btn btn-ghost-profile' %>
+</div>
+<br>
+<div>
+  <div>
+    <h3>Your Appointment with Sandro</h3>
+  </div>
+  <div>
+    <p><strong>Problem:</strong> Water leaking from faucet</p>
+  </div>
+  <div>
+    <p><strong>Date:</strong> 13/04/2020</p>
+  </div>
+  <div>
+    <p><strong>Time:</strong> 09h00</p>
+  </div>
+  <div><strong>Estimation Duration:</strong> 1 Hour</div>
+</div>
+
+
+<!-- End Testing appointment page-->
+
 <script>
   const choices = document.querySelectorAll('.problem-choice');
   console.log(choices);
@@ -72,3 +103,4 @@
     })
   );
 </script>
+
