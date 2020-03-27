@@ -7,7 +7,7 @@
   <div class="category-cards">
     <% @categories.each do |category| %>
       <div class="card-vertical">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= image_tag("#{category.name.downcase.split.join('_')}.png") %>
         <a href=<%= category_problems_path(category) %>>
           <div class="card-vertical-infos">
             <div>
