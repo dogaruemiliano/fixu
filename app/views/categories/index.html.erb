@@ -7,7 +7,7 @@
   <div class="category-cards">
     <% @categories.each do |category| %>
       <div class="card-vertical">
-        <%= image_tag("#{category.name.downcase.split.join('_')}.png") %>
+        <%= image_tag("categories/#{category.name.downcase.split.join('_')}.png") %>
         <a href=<%= category_problems_path(category) %>>
           <div class="card-vertical-infos">
             <div>
