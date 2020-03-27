@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .card-vertical {
@@ -53,20 +53,23 @@
   background: $dark-blue;
   color: $dark-yellow;
   border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   top: 0;
-  left: 45px;
+  left: 35px;
 }
 .fixer-price p {
   margin: 0;
-  font-size: 8px;
+  font-size: 12px;
   text-align: center;
   line-height: 0.8rem;
 }
 .fixer-card .fixer-detail h3 {
   color: $dark-blue;
-  font-weight: 700;
+  font-weight: 500;
+}
+.fixer-card .fixer-detail p {
+  margin-bottom: 8px;
 }
 .fixer-card .fixer-btn {
   display: flex;

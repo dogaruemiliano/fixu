@@ -1,0 +1,27 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">Where and when?</h2>
+    </div>
+    <div class="col-6 offset-3">
+      <div class="dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot current"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <%= simple_form_for(@appointment) do |f| %>
+        <% if current_user && current_user.address %>
+          <%= f.input :address, input_html: { value: current_user.address } %>
+        <% else %>
+          <%= f.input :address, placeholder: "Your address" %>
+        <% end %>
+        <%= f.input :time, as: :datetime %>
+        <%= f.button :submit, "Find your fixer", class: 'btn-lg mt-4' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

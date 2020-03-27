@@ -36,7 +36,7 @@ users_data = [
     last_name: "Nadifi",
     address: "Barcelona, Grassot 101",
     phone_number: Faker::PhoneNumber.phone_number
-  },
+  }
 ]
 
 fixers_data = [
@@ -55,7 +55,7 @@ fixers_data = [
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("19:00"),
-    unit_price: 20
+    unit_price: 15
   }
 ]
 
@@ -113,68 +113,76 @@ puts "Creating categories"
 puts "-" * 30
 categories_data = [
   { name: "Dishwasher",
-    problems: [ "Cleaning is not working",
+    problems: [
+      "Cleaning is not working",
       "Dishwasher doesn't start",
       "Dishwasher makes noise",
       "Water doesn't drain",
-      "Water leaks from Dishwasher",
-      "Door Doesn't Latch"]
+      "Water leaks from dishwasher",
+      "Door doesn't latch"]
     },
   { name: "Fridge",
-    problems: [ "Water Leaking on the Floor",
-      "Freezer Isn't Cold Enough.",
-      "Unit is Cycling Too Often",
-      "Fresh Compartment Is Warming Up",
-      "Sheet of Ice on the Freezer Floor",
-      "Refrigerator is Freezing Food",]
+    problems: [
+      "Water leaking on the floor",
+      "Freezer isn't cold enough",
+      "Unit is cycling too often",
+      "Fresh compartment is warming up",
+      "Sheet of ice on the freezer floor",
+      "Fridge is freezing food"]
     },
   { name: "Washing Machine",
-    problems: [ "The machine won't fill with water",
+    problems: [
+      "Washing machine won't fill with water",
       "The drum doesn't turn",
-      "The machine stops mid-cycle",
-      "The washing machine is noisy",
+      "Washing machine stops mid-cycle",
+      "Washing machine is noisy",
       "Water not draining from washing machine",
-      "The washing machine won't spin",]
+      "Clothes are not cleaned"]
     },
   { name: "Microwave Oven",
-    problems: [ "Microwave does not heat",
+    problems: [
+      "Does not heat",
       "Microwave runs and then stops",
-      "Microwave buttons do not work.",
+      "Buttons do not work.",
       "Microwave plate does not spin",
       "Microwave light-bulb does not turn on",
       "Sparking inside microwave",]
     },
   { name: "Shower" ,
-    problems: [ "Low water pressure.",
-      "Infrequent bursts of scalding hot water.",
-      "Blown pressure relief device",
+    problems: [
+      "Low water pressure",
+      "Infrequent bursts of scalding hot water",
       "Noisy shower",
+      "Blown pressure relief device",
       "Water is too cold",
-      "Water is leaking from the wall",]
+      "Water is leaking from the wall"]
     },
   { name: "Sink" ,
-    problems: [ "Clogged Kitchen Sink",
-      "Low Water Pressure.",
-      "Leaky Kitchen Faucet",
-      "Clogged Drain Lines",
+    problems: [
+      "Clogged kitchen sink",
+      "Low water pressure.",
+      "Leaky kitchen faucet",
+      "Clogged drain lines",
       "Hot water is not working",
-      "Faucet is broken",]
+      "Faucet is broken"]
     },
   { name: "Oven" ,
-    problems: [ "My Oven does not Heat Up",
-      "My oven constantly overheats",
-      "My oven door does not close properly",
-      "My Oven burns kitchen units",
-      "My Oven Emits Loud Sounds",
-      "My oven fan continues to run",]
+    problems: [
+      "Does not heat up",
+      "Oven constantly overheats",
+      "Oven door does not close properly",
+      "Oven burns kitchen units",
+      "Oven emits loud sounds",
+      "Oven fan continues to run"]
     },
   { name: "Cooker" ,
-    problems: [ "One or more elements do not heat up",
-      "Thermostat trips when using grill",
+    problems: [
+      "One or more elements do not heat up",
       "No light",
+      "Thermostat trips when using grill",
       "Noisy fan",
       "Sparks or burning smell",
-      "No functions",]
+      "Not functioning"]
     }
 ]
 

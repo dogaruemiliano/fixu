@@ -1,0 +1,37 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">Top Fixers</h2>
+    </div>
+    <div class="col-6 offset-3">
+      <div class="dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot current"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <% @fixers.each do |fixer| %>
+        <div class="fixer-card">
+          <div class="fixer-avatar">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
+            <div class="fixer-price"><p><%= fixer.unit_price %>&euro;<br>/h</p></div>
+          </div>
+          <div class="fixer-detail px-4">
+            <h3><%= fixer.user.full_name %></h3>
+            <p>5,0 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+            <p style="color: #0CD68D">available</p>
+          </div>
+          <div class="fixer-btn">
+            <%= simple_form_for @appointment do |f| %>
+              <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
+              <%= f.input :price, input_html: {value: fixer.unit_price * @appointment.problem.duration}, as: :hidden %>
+              <%= f.submit "Select", class: 'btn btn-ghost'%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

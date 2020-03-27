@@ -24,14 +24,11 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
-    # Will raise ActiveModel::ForbiddenAttributesError
   end
 
   def update
     @category.update(category_params)
     redirect_to categories_path
-
-    # Will raise ActiveModel::ForbiddenAttributesError
   end
 
   def destroy
