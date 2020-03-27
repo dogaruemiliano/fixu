@@ -4,6 +4,11 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :update, :preference, :fixer]
 
   def show
+    @year = @appointment.time.year
+    @month = @appointment.time.month
+    @day = @appointment.time.day
+    @hour = @appointment.time.hour
+    @min = @appointment.time.min
   end
 
   def create
