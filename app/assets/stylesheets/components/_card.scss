@@ -35,12 +35,12 @@
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
 }
-.fixer-card .fixer-avatar {
+.fixer-card > .fixer-avatar {
   position: relative;
   display: flex;
   align-items: flex-start;
 }
-.fixer-avatar > .avatar {
+.fixer-card > .fixer-avatar > .avatar {
   margin-top: 6px;
   margin-right: 6px;
   width: 80%;
@@ -64,14 +64,24 @@
   text-align: center;
   line-height: 0.8rem;
 }
-.fixer-card .fixer-detail h3 {
-  color: $dark-blue;
-  font-weight: 500;
-}
 .fixer-card .fixer-detail p {
   margin-bottom: 8px;
+  color: $dark-blue;
 }
 .fixer-card .fixer-btn {
   display: flex;
   align-items: flex-start;
 }
+.card-sq {
+  overflow: hidden;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-sq .fixer-avatar .avatar {
+  width: 40%;
+}
+.card-sq p {
+  color: $dark-blue;
+  margin-bottom: 8px;
+}
+

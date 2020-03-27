@@ -16,7 +16,7 @@
         <% else %>
           <%= f.input :address, placeholder: "Your address" %>
         <% end %>
-        <%= f.input :time, as: :datetime %>
+        <%= f.input :time, as: :datetime, minute_step: 10  %>
         <%= f.button :submit, "Find your fixer", class: 'btn-lg mt-4' %>
       <% end %>
     </div>
