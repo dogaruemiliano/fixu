@@ -73,6 +73,9 @@ puts "Destroyed all User models"
 Category.destroy_all
 puts "Destroyed all Category models"
 
+Appointment.destroy_all
+puts "Destroyed all Appointment models"
+
 puts "-" * 30
 puts "Destroyed all previous models"
 puts "-" * 60
@@ -92,7 +95,7 @@ puts "Done creating users"
 puts "-" * 60
 puts "=" * 60
 puts "-" * 60
-puts "Creating fixer"
+puts "Creating fixers"
 puts "-" * 30
 
 data_index = 0 # Helper to iterate throgh the fixers_data
@@ -101,7 +104,7 @@ User.first(3).each do |user|
   fixer.user = user
   fixer.save!
   data_index += 1
-  puts "Created fixer from user with email: #{fixer.user.email}"
+  puts "\ttCreated fixer from user with email: #{fixer.user.email}"
 end
 puts "-" * 30
 puts "Done creating fixer"
@@ -111,16 +114,44 @@ puts "-" * 60
 
 puts "Creating categories"
 puts "-" * 30
+
 categories_data = [
-  { name: "Dishwasher",
+  {
+    name: "Washing Machine",
+    problems: [
+      "Washing machine won't fill with water",
+      "The drum doesn't turn",
+      "Washing machine stops mid-cycle",
+      "Washing machine is noisy",
+      "Water not draining from washing machine",
+      "Clothes are not cleaned"]
+  },
+
+  {
+    name: "Cooker" ,
+    problems: [
+      "One or more elements do not heat up",
+      "Thermostat trips when using grill",
+      "No light",
+      "Noisy fan",
+      "Sparks or burning smell",
+      "No functions",
+      "My oven door does not close properly"
+    ]
+  },
+
+  {
+    name: "Dishwasher",
     problems: [
       "Cleaning is not working",
       "Dishwasher doesn't start",
       "Dishwasher makes noise",
       "Water doesn't drain",
-      "Water leaks from dishwasher",
-      "Door doesn't latch"]
-    },
+      "Water leaks from Dishwasher",
+      "Door Doesn't Latch"
+    ]
+  },
+
   { name: "Fridge",
     problems: [
       "Water leaking on the floor",
@@ -129,34 +160,65 @@ categories_data = [
       "Fresh compartment is warming up",
       "Sheet of ice on the freezer floor",
       "Fridge is freezing food"]
-    },
-  { name: "Washing Machine",
-    problems: [
-      "Washing machine won't fill with water",
-      "The drum doesn't turn",
-      "Washing machine stops mid-cycle",
-      "Washing machine is noisy",
-      "Water not draining from washing machine",
-      "Clothes are not cleaned"]
-    },
-  { name: "Microwave Oven",
+  },
+
+  {
+    name: "Microwave Oven",
     problems: [
       "Does not heat",
       "Microwave runs and then stops",
       "Buttons do not work.",
       "Microwave plate does not spin",
       "Microwave light-bulb does not turn on",
-      "Sparking inside microwave",]
-    },
-  { name: "Shower" ,
+      "Sparking inside microwave"
+    ]
+  },
+
+  {
+    name: "Light",
     problems: [
-      "Low water pressure",
-      "Infrequent bursts of scalding hot water",
-      "Noisy shower",
+      "Don't turn on",
+      "Get too hot",
+      "The fuse pops often",
+      "Inconsistent intensity",
+      "Swich doesn't work",
+      "Popped light-bulb"
+    ]
+  },
+
+  {
+    name: "Boiler",
+    problems: [
+      "Doesn't turn on",
+      "Doesn't heat the water enough",
+      "Leaks water",
+      "Water gets too hot"
+    ]
+  },
+
+  {
+    name: "Shower",
+    problems: [
+      "Low water pressure.",
+      "Infrequent bursts of scalding hot water.",
       "Blown pressure relief device",
-      "Water is too cold",
-      "Water is leaking from the wall"]
-    },
+      "Sparking inside microwave",
+      "Noisy shower",
+      "Water is leaking from the wall"
+    ]
+  },
+
+  {
+    name: "Toilet",
+    photo_id: "toilet",
+    problems: [
+      "Leaks wateer",
+      "Doesn't flush",
+      "Leaks smell",
+      "Tank filling doesn't stop",
+    ]
+  },
+
   { name: "Sink" ,
     problems: [
       "Clogged kitchen sink",
@@ -165,38 +227,41 @@ categories_data = [
       "Clogged drain lines",
       "Hot water is not working",
       "Faucet is broken"]
-    },
-  { name: "Oven" ,
-    problems: [
-      "Does not heat up",
-      "Oven constantly overheats",
-      "Oven door does not close properly",
-      "Oven burns kitchen units",
-      "Oven emits loud sounds",
-      "Oven fan continues to run"]
-    },
-  { name: "Cooker" ,
-    problems: [
-      "One or more elements do not heat up",
-      "No light",
-      "Thermostat trips when using grill",
-      "Noisy fan",
-      "Sparks or burning smell",
-      "Not functioning"]
-    }
+  },
+
+  # { name: "Oven" ,
+  #   problems: [
+  #     "Does not heat up",
+  #     "Oven constantly overheats",
+  #     "Oven door does not close properly",
+  #     "Oven burns kitchen units",
+  #     "Oven emits loud sounds",
+  #     "Oven fan continues to run"
+  #   ]
+  # },
+
+  # { name: "Cooker" ,
+  #   problems: [
+  #     "One or more elements do not heat up",
+  #     "No light",
+  #     "Thermostat trips when using grill",
+  #     "Noisy fan",
+  #     "Sparks or burning smell",
+  #     "Not functioning"
+  #   ]
+  # }
 ]
 
 categories_data.each do |category_data|
-  category = Category.create!(name: category_data[:name])
-  puts "Created catetgory with name: #{category.name}"
-  puts "-" * 30
-  puts "Creating problems for category: #{category.name}"
+  category = Category.create(name: category_data[:name])
+  puts "Created category with name: #{category.name}"
+  puts "\tCreating problems"
   category_data[:problems].each do |content|
-    problem = Problem.create!(content: content, duration: rand(1..5), category: category)
-    problem.save!
+    Problem.create!(content: content, duration: rand(1..5), category: category)
+    puts "\t\tCreated problem with content: #{content}"
   end
-  puts "-" * 30
-  puts "Done creating problems for category: #{category.name}"
+  puts "\tDone creating problems"
+  puts
 end
 
 puts "-" * 30
