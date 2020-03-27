@@ -19,17 +19,5 @@
         <% end %>
       </table>
     </div>
-    <!-- <div class="col-12">
-      <table>
-        <tr>
-          <th class="text-center"><p>Past Appointments</p></th>
-        </tr>
-        <% @appointments.each do |appointment| %>
-          <tr>
-            <td><p><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %> - <%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></p></td>
-          </tr>
-        <% end %>
-      </table>
-    </div> -->
   </div>
 </div>
