@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     resources :problems, only: [:index]
   end
 
-  resources :appointments, only: [:create]
+  resources :appointments, only: [:show, :create, :update]
 
-  get "appointments/time_location", to: "appointments#time_location", as: :time_location
+  get "appointments/:id/preference", to: "appointments#preference", as: :appointment_preference
+  get "appointments/:id/fixer", to: "appointments#fixer", as: :appointment_fixer
 
-  get "appointments/fixer", to: "appointments#set_fixer", as: :appointment_fixer
 
   resources :users, only: [:show] do
     resources :fixers, only: [:new, :create, :destroy]

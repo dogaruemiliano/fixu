@@ -1,0 +1,20 @@
+table {
+  margin: 32px 0;
+}
+
+th {
+  background: $dark-blue;
+  color: $dark-yellow;
+  opacity: 0.7;
+  border: 1px solid $dark-blue;
+}
+th p {
+  margin: 8px;
+}
+td {
+  border: 1px solid $dark-blue;
+}
+td p {
+  margin: 6px 12px;
+  color: $dark-blue;
+}

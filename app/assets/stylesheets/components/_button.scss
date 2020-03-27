@@ -26,11 +26,18 @@
 
 .btn-ghost {
   color: $dark-blue;
-  border: 1px solid $dark-blue;
+  border: 2px solid $dark-blue;
+  border-radius: 5px;
   padding: 4px 12px;
   font-weight: lighter;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+  &.profile {
+    border-radius: 30px;
+  }
 }
 
 .btn-ghost:hover {

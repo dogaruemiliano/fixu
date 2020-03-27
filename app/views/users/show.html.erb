@@ -1,16 +1,3 @@
-<p><strong>User details</strong></p>
-<p>Name: <%= current_user.full_name %></p>
-<p>Phone number: <%= current_user.phone_number %></p>
-<p>Email: <%= current_user.email %></p>
-<p>Address: <%= current_user.address %></p>
-
-<br>
-<%= link_to("Edit account info", edit_user_registration_path) %>
-
-<br>
-<% unless Fixer.find_by(user_id: current_user.id)%>
-  <%= link_to("Become a Fixer", new_user_fixer_path(current_user.id)) %>
-<% else %>
-  <p>You are a <strong>Fixer</strong></p>
-  <%= link_to "Stop being a fixer", user_fixer_path(current_user, @fixer), method: :delete %>
+<% @appointments.each do |appointment| %>
+  <%= appointment.fixer.user.first_name %>
 <% end %>

@@ -1,13 +1,14 @@
 .dots {
   display: flex;
   justify-content: space-between;
+  margin: 8px 0 16px;
 }
 .dot {
   background: lightgrey;
   border-radius: 50%;
   height: 1rem;
   width: 1rem;
-  &.active {
+  &.current {
     background: $dark-blue;
   }
 }

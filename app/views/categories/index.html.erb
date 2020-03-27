@@ -3,6 +3,12 @@
     <div class="col-12">
       <h2 class="text-center">What can we fix?</h2>
     </div>
+    <div class="col-6 offset-3">
+      <div class="dots">
+        <div class="dot current"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
   </div>
   <div class="category-cards">
     <% @categories.each do |category| %>
@@ -19,58 +25,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-<div class="form-group">
-  <label class="control-label check_boxes optional">Categories</label>
-  <input type="hidden" name="post[category_ids][]" value="">
-  <div class="problem-choices">
-    <% Category.all.each do |category| %>
-      <input type="radio" style="display: none;" value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
-      <label class="problem-choice" for="post_category_ids_<%= category.id %>">
-        <%= category.name %>
-      </label>
-    <% end %>
-   </div>
-</div>
-
-<div class="fixer-card">
-  <div class="fixer-avatar">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
-    <div class="fixer-price"><p>22&euro;<br>/h</p></div>
-  </div>
-  <div class="fixer-detail">
-    <h3>Sandro Marques</h3>
-    <p>4,5 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-    <p style="color: #0CD68D">available</p>
-  </div>
-  <div class="fixer-btn">
-    <%= link_to 'Select', '', class: 'btn btn-ghost' %>
-  </div>
-</div>
-
-<div class="dots">
-  <div class="dot active">1</div>
-  <div class="dot">2</div>
-  <div class="dot">3</div>
-  <div class="dot">4</div>
-  <div class="dot">5</div>
-  <div class="dot">6</div>
-</div>
-<div class="div" style="height: 60vh;"></div>
-<script>
-  const choices = document.querySelectorAll('.problem-choice');
-  console.log(choices);
-
-  choices.forEach( choice =>
-    choice.addEventListener("click", (event) => {
-      console.log(event);
-      const active = document.querySelector('.active');
-      event.currentTarget.classList.toggle('active');
-      if (active !== null) {
-        active.classList.remove('active');
-      }
-    })
-  );
-</script>
