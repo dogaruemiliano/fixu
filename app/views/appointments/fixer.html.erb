@@ -15,19 +15,20 @@
     </div>
     <div class="col-12">
       <% @fixers.each do |fixer| %>
-        <div class="fixer-card">
+        <div class="fixer-card py-4">
           <div class="fixer-avatar">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
             <div class="fixer-price"><p><%= fixer.unit_price %>&euro;<br>/h</p></div>
           </div>
           <div class="fixer-detail px-4">
-            <h3><%= fixer.user.full_name %></h3>
-            <p>5,0 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+            <p style="font-weight: 700;"><%= fixer.user.full_name %></p>
+            <p style="font-size: 14px;">5,0 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
             <p style="color: #0CD68D">available</p>
           </div>
           <div class="fixer-btn">
             <%= simple_form_for @appointment do |f| %>
               <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
+              <%= f.input :status, input_html: {value: 'confirmed'}, as: :hidden %>
               <%= f.input :price, input_html: {value: fixer.unit_price * @appointment.problem.duration}, as: :hidden %>
               <%= f.submit "Select", class: 'btn btn-ghost'%>
             <% end %>

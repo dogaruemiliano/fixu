@@ -1,8 +1,16 @@
-<h1>Become a fixer</h1>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2>Become a fixer</h2>
+      <%= simple_form_for([@user, @fixer]) do |f| %>
+      <%= f.input :start_time, as: :time, minute_step: 30, default: Time.parse("8:00") %>
+      <%= f.input :end_time, as: :time, minute_step: 30, default: Time.parse("20:00") %>
+      <%= f.input :unit_price, as: :integer, default: 10 %>
+      <%= f.button :submit, "Become a fixer", class: 'btn-lg mt-4'%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for([@user, @fixer]) do |f| %>
-<%= f.input :start_time, as: :time, minute_step: 30, default: Time.parse("8:00") %>
-<%= f.input :end_time, as: :time, minute_step: 30, default: Time.parse("20:00") %>
-<%= f.input :unit_price, as: :integer, default: 10 %>
-<%= f.button :submit, "Become a fixer" %>
-<% end %>
+
+
