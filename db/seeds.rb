@@ -247,15 +247,13 @@ categories_data = [
 
 categories_data.each do |category_data|
   category = Category.create(name: category_data[:name])
-  # category.attach.photo(io: file, filename:"#{category_data[:photo_id]}", content_type: "image/png")
-  # category.save
   puts "Created category with name: #{category.name}"
-  puts "\tCreating problems"  # for category: #{category.name}"
+  puts "\tCreating problems"
   category_data[:problems].each do |content|
     Problem.create!(content: content, duration: rand(1..5), category: category)
     puts "\t\tCreated problem with content: #{content}"
   end
-  puts "\tDone creating problems" #  for category: #{category.name}"
+  puts "\tDone creating problems"
   puts
 end
 
