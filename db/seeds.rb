@@ -124,7 +124,7 @@ categories_data = [
   { name: "Fridge",
     problems: [
       "Water leaking on the floor",
-      "Freezer isn't cold Enough",
+      "Freezer isn't cold enough",
       "Unit is cycling too often",
       "Fresh compartment is warming up",
       "Sheet of ice on the freezer floor",

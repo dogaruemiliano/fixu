@@ -9,11 +9,11 @@
           <th class="text-center"><p>Your appointment with <%= @appointment.fixer.user.first_name %></p></th>
         </tr>
         <tr>
-          <td><p><strong>Promblem:</strong> <%= @appointment.problem.content %></p></td>
+          <td><p><strong>Problem:</strong> <%= @appointment.problem.content %></p></td>
         </tr>
         <tr>
           <td>
-            <p><strong>Dime:</strong> <%= @day %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p>
+            <p><strong>Date:</strong> <%= @day %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p>
           </td>
         </tr>
         <tr>
