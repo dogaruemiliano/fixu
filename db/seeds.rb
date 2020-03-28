@@ -3,32 +3,6 @@ require 'faker'
 # Data used for seeding
 users_data = [
   {
-    email: "emi@gmail.com",
-    password: "123456",
-    first_name: "Emiliano",
-    last_name: "Dogaru",
-    address: "Carrer d'Arizala, 57, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
-  },
-
-  {
-    email: "sang@gmail.com",
-    password: "123456",
-    first_name: "Sangsoo",
-    last_name: "Ra",
-    address: "Plaça de Catalunya, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
-  },
-  {
-    email: "abder@gmail.com",
-    password: "123456",
-    first_name: "Abderrahim",
-    last_name: "Nadifi",
-    address: "Carrer d'en Grassot, 101, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
-  },
-
-  {
     email: "ellyn@gmail.com",
     password: "123456",
     first_name: "Ellyn",
@@ -101,6 +75,32 @@ users_data = [
   },
 
   {
+    email: "emi@gmail.com",
+    password: "123456",
+    first_name: "Emiliano",
+    last_name: "Dogaru",
+    address: "Carrer d'Arizala, 57, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "sang@gmail.com",
+    password: "123456",
+    first_name: "Sangsoo",
+    last_name: "Ra",
+    address: "Plaça de Catalunya, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+  {
+    email: "abder@gmail.com",
+    password: "123456",
+    first_name: "Abderrahim",
+    last_name: "Nadifi",
+    address: "Carrer d'en Grassot, 101, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
     email: "leon@gmail.com",
     password: "123456",
     first_name: "Leon",
@@ -133,48 +133,30 @@ fixers_data = [
   {
     start_time: Time.parse("09:00"),
     end_time: Time.parse("14:00"),
-    unit_price: 15
+    unit_price: 20
   },
 
   {
     start_time: Time.parse("16:00"),
     end_time: Time.parse("21:00"),
-    unit_price: 15
+    unit_price: 12
   },
 
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("18:00"),
-    unit_price: 15
+    unit_price: 18
   },
 
   {
     start_time: Time.parse("14:00"),
     end_time: Time.parse("18:00"),
-    unit_price: 15
+    unit_price: 11
   },
 
   {
     start_time: Time.parse("16:00"),
     end_time: Time.parse("20:00"),
-    unit_price: 15
-  },
-
-  {
-    start_time: Time.parse("08:00"),
-    end_time: Time.parse("15:00"),
-    unit_price: 15
-  },
-
-  {
-    start_time: Time.parse("12:00"),
-    end_time: Time.parse("19:00"),
-    unit_price: 15
-  },
-
-  {
-    start_time: Time.parse("09:00"),
-    end_time: Time.parse("18:00"),
     unit_price: 15
   }
 ]
@@ -335,7 +317,7 @@ puts "Creating fixers"
 puts "-" * 30
 
 data_index = 0 # Helper to iterate throgh the fixers_data
-User.first(11).each do |user|
+User.first(8).each do |user|
   fixer = Fixer.new(fixers_data[data_index])
   fixer.user = user
   fixer.save!
