@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:time_location, :set_fixer]
 
-  before_action :set_appointment, only: [:show, :update, :preference, :fixer]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy, :preference, :fixer]
 
   def show
     @year = @appointment.time.year
@@ -11,7 +11,15 @@ class AppointmentsController < ApplicationController
     @min = @appointment.time.min
   end
 
+  def new
+    @category = Category.find(params[:category_id])
+    @appointment = Appointment.new
+    @problems = @category.problems
+  end
+
   def create
+    @category = Category.find(params[:category_id])
+    @problems = @category.problems
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
     if @appointment.save
@@ -21,8 +29,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def preference
-
+  def edit
   end
 
   def update
@@ -37,17 +44,16 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @appointment.destroy
+    redirect_to appointments_path
+  end
+
+  def preference
+  end
+
   def fixer
     @fixers = Fixer.all
-  end
-
-  def time_location
-    @appointment = Appointment.new(appointment_params)
-  end
-
-  def set_fixer
-    # the step where we print the fixers
-    raise
   end
 
   private

@@ -12,7 +12,7 @@
   </div>
   <div class="category-cards">
     <% @categories.each do |category| %>
-      <a href=<%= category_problems_path(category) %>>
+      <a href=<%= new_category_appointment_path(category) %>>
         <div class="card-vertical">
         <%= image_tag("categories/#{category.name.downcase.split.join('_')}.png") %>
           <div class="card-vertical-infos">

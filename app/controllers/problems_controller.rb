@@ -2,40 +2,14 @@ class ProblemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:new, :create]
 
   def index
     category = Category.find(params[:category_id])
-    @appointment = Appointment.new
+    appointment = Appointment.new
     @problems = category.problems
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def new
-    @problem = Problem.new
-  end
-
-  def create
-    @problem = Problem.new(problem_params)
-    @problem.category = @category
-    if @problem.save
-      redirect_to category_path(@problem.category)
-    else
-      render :new
-    end
-    # Will raise ActiveModel::ForbiddenAttributesError
-  end
-
-  def update
-    @problem.update(problem_params)
-    redirect_to category_path(@problem.category)
-
-    # Will raise ActiveModel::ForbiddenAttributesError
   end
 
   def destroy

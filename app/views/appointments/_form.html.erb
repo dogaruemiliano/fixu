@@ -1,0 +1,49 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">What is wrong with it?</h2>
+    </div>
+    <div class="col-6 offset-3">
+      <div class="dots">
+        <div class="dot"></div><div class="dot current"></div><div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <%= simple_form_for [@category, @appointment] do |f| %>
+        <div class="form-group">
+          <input type="hidden" name="appointment[problem_id]" value="">
+          <div class="problem-choices">
+            <% @problems.each do |problem| %>
+              <input type="radio" style="display: none;" value="<%= problem.id %>" name="appointment[problem_id]" id="appointment_problem_id_<%= problem.id %>">
+              <label class="problem-choice" for="appointment_problem_id_<%= problem.id %>">
+                <%= problem.content %>
+              </label>
+            <% end %>
+           </div>
+        </div>
+        <div class="label-center">
+          <%= f.input :comment, as: :text, label: 'Having other problems? Or ellaborate!', placeholder: "Tell us more about your problem" %>
+          <%= f.input :photos, as: :file, label: 'Help us by sharing photo / video of your problem (optional)', input_html: { multiple: true } %>
+        </div>
+        <%= f.button :submit, "Next", class: 'btn-lg mt-4' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  const choices = document.querySelectorAll('.problem-choice');
+  console.log(choices);
+
+  choices.forEach( choice =>
+    choice.addEventListener("click", (event) => {
+      console.log(event);
+      const active = document.querySelector('.active');
+      event.currentTarget.classList.toggle('active');
+      if (active !== null) {
+        active.classList.remove('active');
+      }
+    })
+  );
+</script>

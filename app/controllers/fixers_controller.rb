@@ -1,5 +1,5 @@
 class FixersController < ApplicationController
-  before_action :set_fixer, only: [:destroy]
+  before_action :set_fixer, only: [:edit, :update, :destroy]
   def new
     @fixer = Fixer.new()
     @user = current_user
@@ -16,6 +16,18 @@ class FixersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = current_user
+    if @fixer.update(fixer_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @fixer.destroy!
     redirect_to root_path
@@ -28,6 +40,6 @@ class FixersController < ApplicationController
   end
 
   def fixer_params
-    params.require(:fixer).permit(:start_time, :end_time, :unit_price)
+    params.require(:fixer).permit(:start_time, :end_time, :unit_price, :speciality_id)
   end
 end
