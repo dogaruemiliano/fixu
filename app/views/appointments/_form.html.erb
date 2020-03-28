@@ -25,6 +25,7 @@
         <div class="label-center">
           <%= f.input :comment, as: :text, label: 'Having other problems? Or ellaborate!', placeholder: "Tell us more about your problem" %>
           <%= f.input :photos, as: :file, label: 'Help us by sharing photo / video of your problem (optional)', input_html: { multiple: true } %>
+          <%= f.input :status, input_html: {value: 'created'}, as: :hidden %>
         </div>
         <%= f.button :submit, "Next", class: 'btn-lg mt-4' %>
       <% end %>

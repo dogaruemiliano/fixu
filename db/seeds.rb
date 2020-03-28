@@ -41,7 +41,7 @@ users_data = [
   {
     email: "prima@gmail.com",
     password: "123456",
-    first_name: "Gus",
+    first_name: "Prima",
     last_name: "Aulia Gusta",
     address: "Passatge de Domingo, 3, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number
