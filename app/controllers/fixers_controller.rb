@@ -1,5 +1,5 @@
 class FixersController < ApplicationController
-  before_action :set_fixer, only: [:edit, :update, :destroy, :details, :appointmnets]
+  before_action :set_fixer, only: [:edit, :update, :destroy, :details, :appointments]
   def new
     @fixer = Fixer.new()
     @user = current_user
@@ -43,7 +43,8 @@ class FixersController < ApplicationController
   end
 
   def appointments
-
+    @appointments = @fixer.appointments
+    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed"}
   end
 
   private
