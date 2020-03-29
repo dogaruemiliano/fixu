@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :appointments, only: [:new, :create]
   end
 
-  resources :appointments, only: [:show, :update]
+  resources :appointments, only: [:show, :update, :destroy]
 
   get "appointments/:id/preference", to: "appointments#preference", as: :appointment_preference
   get "appointments/:id/fixer", to: "appointments#fixer", as: :appointment_fixer

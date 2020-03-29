@@ -46,7 +46,9 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path
+    if @appointment.status == "created"
+      redirect_to root_path
+    end
   end
 
   def preference

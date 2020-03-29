@@ -1,11 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <!-- <a class="back" href="#">
-    Back
-  </a>
-  <a class="cancel" href="#">
-    X
-  </a> -->
-
-  <%= link_to "<", :back, class: "back"%>
-  <%= link_to "x", root_path, class: "cancel"  %>
+  <%= link_to '<', :back, class: 'back' %>
+  <% if @appointment && @appointment.status == 'created' %>
+    <%= link_to 'x', appointment_path(@appointment), method: :delete, class: 'cancel' %>
+  <% else %>
+    <%= link_to 'x', root_path, class: 'cancel'  %>
+  <% end %>
 </div>
