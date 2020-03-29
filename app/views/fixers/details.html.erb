@@ -9,7 +9,7 @@
       <h3>My specialities</h3>
       <ul>
         <% @specialities.each do |speciality| %>
-          <li data-speciality-id="<%= speciality.id %>"><strong><%= speciality.problem.category.name %></strong> - <%= speciality.problem.content %> <%= link_to speciality_path(speciality), method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} do %> <i class="far fa-trash-alt"></i> <% end %></li>
+          <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><strong><%= speciality.problem.category.name %></strong> - <%= speciality.problem.content %></p> <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
         <% end %>
       </ul>
       <%= link_to '', data: { toggle: "modal", target: "#specialityModal" } do %> <div class="btn btn-lg">Add a speciality</div> <% end %>
