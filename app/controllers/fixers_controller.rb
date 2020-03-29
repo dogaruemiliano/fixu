@@ -3,6 +3,7 @@ class FixersController < ApplicationController
   def new
     @fixer = Fixer.new()
     @user = current_user
+    @categories = Category.all
   end
 
   def create

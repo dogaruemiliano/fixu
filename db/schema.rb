@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_152944) do
+ActiveRecord::Schema.define(version: 2020_03_29_014019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 2020_03_26_152944) do
     t.index ["category_id"], name: "index_problems_on_category_id"
   end
 
-  create_table "specialties", force: :cascade do |t|
-    t.bigint "problem_id"
+  create_table "specialities", force: :cascade do |t|
     t.bigint "fixer_id"
+    t.bigint "problem_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fixer_id"], name: "index_specialties_on_fixer_id"
-    t.index ["problem_id"], name: "index_specialties_on_problem_id"
+    t.index ["fixer_id"], name: "index_specialities_on_fixer_id"
+    t.index ["problem_id"], name: "index_specialities_on_problem_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,6 +109,6 @@ ActiveRecord::Schema.define(version: 2020_03_26_152944) do
   add_foreign_key "appointments", "users"
   add_foreign_key "fixers", "users"
   add_foreign_key "problems", "categories"
-  add_foreign_key "specialties", "fixers"
-  add_foreign_key "specialties", "problems"
+  add_foreign_key "specialities", "fixers"
+  add_foreign_key "specialities", "problems"
 end

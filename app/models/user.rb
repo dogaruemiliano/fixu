@@ -16,8 +16,4 @@ class User < ApplicationRecord
   def full_name
     return "#{first_name} #{last_name}"
   end
-
-  # def is_fixer?
-  #   return Fixer.find(self.id)
-  # end
 end
