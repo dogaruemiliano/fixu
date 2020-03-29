@@ -193,7 +193,7 @@ categories_data = [
       "Dishwasher doesn't start",
       "Dishwasher makes noise",
       "Water doesn't drain",
-      "Water leaks from Dishwasher",
+      "Water leaks from dishwasher",
       "Door Doesn't Latch"
     ]
   },
@@ -238,7 +238,9 @@ categories_data = [
       "Doesn't turn on",
       "Doesn't heat the water enough",
       "Leaks water",
-      "Water gets too hot"
+      "Water gets too hot",
+      "Banging, whistling or gurgling noises",
+      "Boiler switching itself off"
     ]
   },
 
@@ -248,9 +250,9 @@ categories_data = [
       "Low water pressure.",
       "Infrequent bursts of scalding hot water.",
       "Blown pressure relief device",
-      "Sparking inside microwave",
       "Noisy shower",
-      "Water is leaking from the wall"
+      "Leaky shower faucet",
+      "Bad smells"
     ]
   },
 
@@ -258,10 +260,12 @@ categories_data = [
     name: "Toilet",
     photo_id: "toilet",
     problems: [
-      "Leaks wateer",
+      "Leaks water",
       "Doesn't flush",
-      "Leaks smell",
+      "Broken tank",
       "Tank filling doesn't stop",
+      "Sewer line clog",
+      "Dripping sound with repetitive tank filling"
     ]
   },
 
