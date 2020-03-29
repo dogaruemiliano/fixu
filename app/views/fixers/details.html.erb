@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2>My details</h2>
+      <h3>My working hours</h3>
+      <p><%= @starting_hour %> to <%= @ending_hour %></p>
+      <h3>My rates per hour</h3>
+      <p><%= @fixer.unit_price %>&euro;</p>
+      <h3>My specialities</h3>
+      <ul>
+        <% @specialities.each do |speciality| %>
+          <li data-speciality-id="<%= speciality.id %>"><strong><%= speciality.problem.category.name %></strong> - <%= speciality.problem.content %> <%= link_to speciality_path(speciality), method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} do %> <i class="far fa-trash-alt"></i> <% end %></li>
+        <% end %>
+      </ul>
+      <%= link_to '', data: { toggle: "modal", target: "#specialityModal" } do %> <div class="btn btn-lg">Add a speciality</div> <% end %>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="specialityModal" tabindex="-1" role="dialog" aria-labelledby="specialityModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="specialityModalLabel">Add a speciality</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+        <%= simple_form_for([@fixer, @speciality]) do |f| %>
+          <%= f.input :problem_id, collection: @categories, as: :grouped_select, group_method: :problems, :label_method => :content, :value_method => :id, label: "Choose a speciality", prompt: "Choose a problem you can fix" %>
+      </div>
+      <div class="modal-footer">
+        <%= f.button :submit, "Add a speciality", class: 'btn-lg mt-4'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

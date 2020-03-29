@@ -1,5 +1,5 @@
 class FixersController < ApplicationController
-  before_action :set_fixer, only: [:edit, :update, :destroy]
+  before_action :set_fixer, only: [:edit, :update, :destroy, :details, :appointmnets]
   def new
     @fixer = Fixer.new()
     @user = current_user
@@ -32,6 +32,18 @@ class FixersController < ApplicationController
   def destroy
     @fixer.destroy!
     redirect_to root_path
+  end
+
+  def details
+    @speciality = Speciality.new
+    @categories = Category.all
+    @specialities = @fixer.specialities
+    @starting_hour =  "#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
+    @ending_hour = "#{@fixer.end_time.hour}:#{@fixer.end_time.min}0"
+  end
+
+  def appointments
+
   end
 
   private

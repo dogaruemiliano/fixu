@@ -14,8 +14,17 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show] do
-    resources :fixers, only: [:new, :create, :edit, :update, :destroy]
+    resources :fixers, only: [:new, :create]
   end
 
+  resources :fixers, only: [:edit, :update, :destroy] do
+    resources :specialities, only: [:create]
+  end
+
+  get "fixers/:id/details", to: "fixers#details", as: :fixer_details
+  get "fixers/:id/appointments", to: "fixers#appointments", as: :fixer_appointments
+
   resources :problems, only: [:show, :destroy]
+
+  resources :specialities, only: [:destroy]
 end

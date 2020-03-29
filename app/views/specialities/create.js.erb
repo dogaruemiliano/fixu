@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const form = document.getElementById('new_speciality');
+  form.innerHTML = innerHTML;
+}
+
+function addSpeciality(speciality) {
+  const specialities = document.getElementById('specialities');
+  specialities.insertAdjacentHTML('beforeend', speciality);
+}
+
+<% if @speciality.errors.any? %>
+  refreshForm('<%= j render "specialities/form", fixer: @fixer, speciality: @speciality %>');
+<% else %>
+  addSpeciality('<%= j render "specialities/show", speciality: @speciality %>');
+  refreshForm('<%= j render "specialities/form", fixer: @fixer, speciality: Speciality.new %>');
+<% end %>

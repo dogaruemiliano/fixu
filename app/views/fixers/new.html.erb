@@ -3,23 +3,23 @@
     <div class="col-12">
       <h2>Become a fixer</h2>
       <%= simple_form_for([@user, @fixer]) do |f| %>
-      <%= f.input :start_time, as: :time, minute_step: 30, default: Time.parse("8:00") %>
-      <%= f.input :end_time, as: :time, minute_step: 30, default: Time.parse("20:00") %>
-      <%= f.input :unit_price, as: :integer, default: 10 %>
-      <div class="form-group select optional fixer_problems">
-        <label class="select optional" for="fixer_problem_ids">Choose your specialities</label>
-        <input name="fixer[problem_ids][]" type="hidden" value="">
-        <select class="form-control select optional" multiple="multiple" name="fixer[problem_ids][]" id="fixer_problem_ids">
-          <% @categories.each do |category| %>
-            <optgroup label='<%= category.name %>'>
-              <% category.problems.each do |problem| %>
-                <option value="<%= problem.content %>"><%= problem.content %></option>
-              <% end %>
-            </optgroup>
-          <% end %>
-        </select>
-      </div>
-      <%= f.button :submit, "Become a fixer", class: 'btn-lg mt-4'%>
+        <%= f.input :start_time, as: :time, minute_step: 30, default: Time.parse("8:00") %>
+        <%= f.input :end_time, as: :time, minute_step: 30, default: Time.parse("20:00") %>
+        <%= f.input :unit_price, as: :integer, default: 10 %>
+        <div class="form-group select optional fixer_problems">
+          <label class="select optional" for="fixer_problem_ids">Choose your specialities</label>
+          <input name="fixer[problem_ids][]" type="hidden" value="">
+          <select class="form-control select optional" multiple="multiple" name="fixer[problem_ids][]" id="fixer_problem_ids">
+            <% @categories.each do |category| %>
+              <optgroup label='<%= category.name %>'>
+                <% category.problems.each do |problem| %>
+                  <option value="<%= problem.content %>"><%= problem.content %></option>
+                <% end %>
+              </optgroup>
+            <% end %>
+          </select>
+        </div>
+        <%= f.button :submit, "Become a fixer", class: 'btn-lg mt-4'%>
       <% end %>
     </div>
   </div>
