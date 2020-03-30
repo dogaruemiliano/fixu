@@ -178,10 +178,9 @@ categories_data = [
     problems: [
       "One or more elements do not heat up",
       "Thermostat trips when using grill",
-      "No light",
       "Noisy fan",
       "Sparks or burning smell",
-      "No functions",
+      "Not functioning",
       "My oven door does not close properly"
     ]
   },
@@ -281,6 +280,32 @@ categories_data = [
 
 ]
 
+specialities_data = [
+  { fixer_id: 1,
+    problem_id: [1, 4, 7, 9, 10, 16, 17, 18, 20, 25, 27, 29, 30, 31, 32, 33, 41, 42, 50, 52, 56, 57, 58, 60]
+  },
+  { fixer_id: 2,
+    problem_id: [1, 2, 3, 4, 6, 8, 10, 11, 12, 20, 25, 26, 27, 32, 33, 34, 35, 36, 40, 42, 50, 51, 52, 53, 59]
+  },
+  { fixer_id: 3,
+    problem_id: [1, 2, 3, 5, 6, 9, 11, 13, 14, 15, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47]
+  },
+  { fixer_id: 4,
+    problem_id: [3, 6, 7, 8, 9, 11, 12, 13, 16, 21, 22, 24, 27, 32, 33, 34, 35, 36, 40, 41, 48, 49, 54, 55, 58]
+  },
+  { fixer_id: 5,
+    problem_id: [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 55, 56, 57, 58, 59, 60]
+  },
+  { fixer_id: 6,
+    problem_id: [7, 8, 9, 10, 11, 12, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+  },
+  { fixer_id: 7,
+    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 19, 21, 22, 24, 27, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+  },
+  { fixer_id: 8,
+    problem_id: [2, 4, 5, 8, 10, 13, 14, 15, 17, 18, 19, 20, 23, 26, 28, 29, 30, 31, 37, 38, 39, 43, 49, 50, 59]
+  }
+]
 puts "*" * 60
 puts "Seeding started"
 puts "=" * 60
@@ -350,12 +375,26 @@ categories_data.each do |category_data|
   puts
 end
 
+
 puts "-" * 30
 puts "Done creating categories"
 puts "-" * 60
 
 
+puts "Creating specialities"
+puts "-" * 30
 
+
+specialities_data.each do |speciality_data|
+  speciality_data[:problem_id].each do |problem_id|
+    speciality = Speciality.create(fixer_id: speciality_data[:fixer_id], problem_id: problem_id)
+    puts "Created speciality"
+  end
+end
+
+puts "-" * 30
+puts "Done creating specialities"
+puts "-" * 60
 
 puts "=" * 60
 puts "Seeding ended"
