@@ -55,9 +55,8 @@ class AppointmentsController < ApplicationController
   end
 
   def fixer
-    problem_id = @appointment.problem_id
-    raise
-    @fixers = Fixer.joins(:specialities).where(specialities: {problem_id: problem_id})
+    problem = @appointment.problem
+    @fixers = Fixer.joins(:specialities).where(specialities: {problem: problem})
   end
 
   private
