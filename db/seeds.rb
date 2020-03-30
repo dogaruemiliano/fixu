@@ -8,7 +8,8 @@ users_data = [
     first_name: "Ellyn",
     last_name: "Bouscasse",
     address: "Carrer de Tuset, 13, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "EllynBsc"
   },
 
   {
@@ -17,16 +18,18 @@ users_data = [
     first_name: "Avalon",
     last_name: "van der Horst",
     address: "Carrer de Tuset, 8, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "Avalonvdhorst"
   },
 
   {
-    email: "alex@gmail.com",
+    email: "alexander@gmail.com",
     password: "123456",
     first_name: "Alexander",
     last_name: "Dubovoy",
     address: "Carrer de París, 193, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "ajdubovoy"
   },
 
   {
@@ -35,7 +38,8 @@ users_data = [
     first_name: "Gus",
     last_name: "De Vita",
     address: "Carrer d'Aragó, 141, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "devitagus"
   },
 
   {
@@ -44,7 +48,8 @@ users_data = [
     first_name: "Prima",
     last_name: "Aulia Gusta",
     address: "Passatge de Domingo, 3, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "primaulia"
   },
 
   {
@@ -53,7 +58,8 @@ users_data = [
     first_name: "Louis",
     last_name: "Darche",
     address: "Carrer dels Almogàvers, 122, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "LouiseDarche"
   },
 
   {
@@ -62,7 +68,8 @@ users_data = [
     first_name: "Valerie",
     last_name: "Schraauwers",
     address: "Carrer del Rosselló, 217, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "valerieschraauwers"
   },
 
   {
@@ -71,7 +78,8 @@ users_data = [
     first_name: "Claire",
     last_name: "Gautier",
     address: "Carrer de Provença, 171, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "claire-gtr"
   },
 
   {
@@ -80,7 +88,8 @@ users_data = [
     first_name: "Emiliano",
     last_name: "Dogaru",
     address: "Carrer d'Arizala, 57, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "dogaruemiliano"
   },
 
   {
@@ -89,7 +98,8 @@ users_data = [
     first_name: "Sangsoo",
     last_name: "Ra",
     address: "Plaça de Catalunya, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "sangsoora"
   },
   {
     email: "abder@gmail.com",
@@ -97,7 +107,8 @@ users_data = [
     first_name: "Abderrahim",
     last_name: "Nadifi",
     address: "Carrer d'en Grassot, 101, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "Abder007"
   },
 
   {
@@ -106,7 +117,8 @@ users_data = [
     first_name: "Leon",
     last_name: "Ellerbrock",
     address: "Carrer de Calvet, 58, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "leonellerbrock"
   }
 
 ]
