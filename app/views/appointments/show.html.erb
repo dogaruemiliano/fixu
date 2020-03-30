@@ -40,8 +40,7 @@
           <td><p><strong>Duration:</strong> <%= @appointment.problem.duration %> <% if @appointment.problem.duration == 1 %>Hour<% elsif @appointment.problem.duration >= 2 %>Hours<% end %></p></td>
         </tr>
         <tr>
-          <!-- Displaying the price -->
-           <td><p><strong>Price:</strong> <%= humanized_money_with_symbol(@appointment.amount) %></p></td>
+          <td><p><strong>Price:</strong> <%= humanized_money_with_symbol(@appointment.amount) %></p></td>
         </tr>
       </table>
     </div>
