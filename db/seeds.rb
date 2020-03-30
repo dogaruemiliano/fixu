@@ -193,7 +193,7 @@ categories_data = [
       "Dishwasher makes noise",
       "Water doesn't drain",
       "Water leaks from dishwasher",
-      "Door Doesn't Latch"
+      "Door doesn't latch"
     ]
   },
 
@@ -212,7 +212,7 @@ categories_data = [
     problems: [
       "Does not heat",
       "Microwave runs and then stops",
-      "Buttons do not work.",
+      "Buttons do not work",
       "Microwave plate does not spin",
       "Microwave light-bulb does not turn on",
       "Sparking inside microwave"
