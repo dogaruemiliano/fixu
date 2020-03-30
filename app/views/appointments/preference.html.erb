@@ -20,13 +20,10 @@
         <% else %>
           <%= f.input :address, placeholder: "Your address" %>
         <% end %>
-        <%= f.input :time, as: :datetime, minute_step: 10  %>
-        <%= f.input :user_id, input_html: {value: current_user.id}, as: :hidden %>
-        <%= f.button :submit, "Find your fixer", class: 'btn-lg mt-4' %>
+      <%= f.input :time, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :user_id, input_html: {value: current_user.id}, as: :hidden %>
+      <%= f.button :submit, "Find your fixer", class: "btn-lg mt-4" %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-

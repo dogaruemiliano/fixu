@@ -8,7 +8,8 @@ users_data = [
     first_name: "Ellyn",
     last_name: "Bouscasse",
     address: "Carrer de Tuset, 13, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "EllynBsc"
   },
 
   {
@@ -17,16 +18,18 @@ users_data = [
     first_name: "Avalon",
     last_name: "van der Horst",
     address: "Carrer de Tuset, 8, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "Avalonvdhorst"
   },
 
   {
-    email: "alex@gmail.com",
+    email: "alexander@gmail.com",
     password: "123456",
     first_name: "Alexander",
     last_name: "Dubovoy",
     address: "Carrer de París, 193, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "ajdubovoy"
   },
 
   {
@@ -35,7 +38,8 @@ users_data = [
     first_name: "Gus",
     last_name: "De Vita",
     address: "Carrer d'Aragó, 141, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "devitagus"
   },
 
   {
@@ -44,7 +48,8 @@ users_data = [
     first_name: "Prima",
     last_name: "Aulia Gusta",
     address: "Passatge de Domingo, 3, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "primaulia"
   },
 
   {
@@ -53,7 +58,8 @@ users_data = [
     first_name: "Louis",
     last_name: "Darche",
     address: "Carrer dels Almogàvers, 122, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "LouiseDarche"
   },
 
   {
@@ -62,7 +68,8 @@ users_data = [
     first_name: "Valerie",
     last_name: "Schraauwers",
     address: "Carrer del Rosselló, 217, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "valerieschraauwers"
   },
 
   {
@@ -71,7 +78,18 @@ users_data = [
     first_name: "Claire",
     last_name: "Gautier",
     address: "Carrer de Provença, 171, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "claire-gtr"
+  },
+
+  {
+    email: "fanny@gmail.com",
+    password: "123456",
+    first_name: "Fanny",
+    last_name: "Rojon",
+    address: "Carrer de Lincoln, 15, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "fanny-rojon"
   },
 
   {
@@ -80,7 +98,8 @@ users_data = [
     first_name: "Emiliano",
     last_name: "Dogaru",
     address: "Carrer d'Arizala, 57, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "dogaruemiliano"
   },
 
   {
@@ -89,7 +108,8 @@ users_data = [
     first_name: "Sangsoo",
     last_name: "Ra",
     address: "Plaça de Catalunya, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "sangsoora"
   },
   {
     email: "abder@gmail.com",
@@ -97,7 +117,8 @@ users_data = [
     first_name: "Abderrahim",
     last_name: "Nadifi",
     address: "Carrer d'en Grassot, 101, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "Abder007"
   },
 
   {
@@ -106,7 +127,8 @@ users_data = [
     first_name: "Leon",
     last_name: "Ellerbrock",
     address: "Carrer de Calvet, 58, Barcelona",
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "leonellerbrock"
   }
 
 ]
@@ -158,6 +180,12 @@ fixers_data = [
     start_time: Time.parse("16:00"),
     end_time: Time.parse("20:00"),
     price: 15
+  },
+
+  {
+    start_time: Time.parse("09:00"),
+    end_time: Time.parse("18:00"),
+    price: 10
   }
 ]
 
@@ -178,10 +206,9 @@ categories_data = [
     problems: [
       "One or more elements do not heat up",
       "Thermostat trips when using grill",
-      "No light",
       "Noisy fan",
       "Sparks or burning smell",
-      "No functions",
+      "Not functioning",
       "My oven door does not close properly"
     ]
   },
@@ -194,7 +221,7 @@ categories_data = [
       "Dishwasher makes noise",
       "Water doesn't drain",
       "Water leaks from dishwasher",
-      "Door Doesn't Latch"
+      "Door doesn't latch"
     ]
   },
 
@@ -213,7 +240,7 @@ categories_data = [
     problems: [
       "Does not heat",
       "Microwave runs and then stops",
-      "Buttons do not work.",
+      "Buttons do not work",
       "Microwave plate does not spin",
       "Microwave light-bulb does not turn on",
       "Sparking inside microwave"
@@ -281,6 +308,43 @@ categories_data = [
 
 ]
 
+specialities_data = [
+  { fixer_id: 1,
+    problem_id: [1, 4, 7, 10, 16, 17, 18, 20, 25, 27, 29, 30, 31, 32, 33, 41, 42, 50, 51, 52, 56, 57, 58, 60]
+  },
+
+  { fixer_id: 2,
+    problem_id: [1, 2, 3, 4, 6, 8, 10, 11, 12, 20, 25, 26, 27, 32, 33, 34, 35, 36, 40, 42, 50, 51, 52, 53, 59]
+  },
+
+  { fixer_id: 3,
+    problem_id: [2, 5, 6, 9, 11, 13, 14, 15, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47, 54, 59]
+  },
+
+  { fixer_id: 4,
+    problem_id: [3, 6, 7, 8, 9, 11, 12, 13, 16, 21, 22, 24, 27, 32, 33, 34, 35, 36, 40, 41, 48, 49, 54, 55, 58]
+  },
+
+  { fixer_id: 5,
+    problem_id: [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 55, 56, 57, 58, 59, 60]
+  },
+
+  { fixer_id: 6,
+    problem_id: [7, 8, 9, 10, 11, 12, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+  },
+
+  { fixer_id: 7,
+    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 19, 21, 22, 24, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+  },
+
+  { fixer_id: 8,
+    problem_id: [2, 4, 5, 10, 13, 14, 15, 17, 18, 19, 20, 23, 26, 28, 29, 30, 31, 37, 38, 39, 43, 49, 50, 53, 59]
+  },
+
+  { fixer_id: 9,
+    problem_id: [4, 7, 14, 17, 18, 23, 25, 26, 28, 29, 30, 31, 34, 35, 36, 43, 44, 45, 46, 47, 48, 55, 56, 57, 60]
+  }
+]
 puts "*" * 60
 puts "Seeding started"
 puts "=" * 60
@@ -321,7 +385,7 @@ puts "Creating fixers"
 puts "-" * 30
 
 data_index = 0 # Helper to iterate throgh the fixers_data
-User.first(8).each do |user|
+User.first(9).each do |user|
   fixer = Fixer.new(fixers_data[data_index])
   fixer.user = user
   fixer.save!
@@ -350,12 +414,26 @@ categories_data.each do |category_data|
   puts
 end
 
+
 puts "-" * 30
 puts "Done creating categories"
 puts "-" * 60
 
 
+puts "Creating specialities"
+puts "-" * 30
 
+
+specialities_data.each do |speciality_data|
+  speciality_data[:problem_id].each do |problem_id|
+    speciality = Speciality.create(fixer_id: speciality_data[:fixer_id], problem_id: problem_id)
+    puts "Created speciality"
+  end
+end
+
+puts "-" * 30
+puts "Done creating specialities"
+puts "-" * 60
 
 puts "=" * 60
 puts "Seeding ended"

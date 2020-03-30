@@ -3,8 +3,8 @@
     <div class="col-12">
       <h2>Become a fixer</h2>
       <%= simple_form_for([@user, @fixer]) do |f| %>
-        <%= f.input :start_time, as: :time, minute_step: 30, default: Time.parse("8:00") %>
-        <%= f.input :end_time, as: :time, minute_step: 30, default: Time.parse("20:00") %>
+        <%= f.input :start_time, as: :string, input_html: {class: "timepicker"} %>
+        <%= f.input :end_time, as: :string, input_html: {class: "timepicker"} %>
         <%= f.input :unit_price, as: :integer, default: 10 %>
         <div class="form-group select optional fixer_problems">
           <label class="select optional" for="fixer_problem_ids">Choose your specialities</label>
