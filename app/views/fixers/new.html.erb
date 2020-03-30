@@ -1,7 +1,7 @@
 <div class="container my-4">
   <div class="row">
     <div class="col-12">
-      <h2 class="text-center">Become a fixer</h2>
+      <h2>Become a fixer</h2>
       <%= simple_form_for([@user, @fixer]) do |f| %>
         <%= f.input :start_time, as: :string, input_html: {class: "timepicker"} %>
         <%= f.input :end_time, as: :string, input_html: {class: "timepicker"} %>
