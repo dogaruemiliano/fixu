@@ -7,7 +7,7 @@
     <div class="col-12">
       <div class="card-sq text-center">
         <div class="fixer-avatar">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{@appointment.fixer.user.lewagon_username}", class: "avatar" %>
         </div>
         <div class="fixer-detail">
           <p><strong><%= @appointment.fixer.user.full_name %></strong></p>
