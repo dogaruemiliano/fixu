@@ -1,11 +1,11 @@
 import flatpickr from "flatpickr";
-
+require("flatpickr/dist/themes/dark.css");
 flatpickr(".datepicker", {
   enableTime: true,
   disableMobile: "true",
   dateFormat: "d-m-Y H:i",
-  minuteIncrement: 10
-
+  minuteIncrement: 10,
+  minDate: "today"
 
 });
 flatpickr(".timepicker", {
