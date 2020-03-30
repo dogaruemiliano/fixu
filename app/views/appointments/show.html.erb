@@ -46,7 +46,8 @@
     </div>
     <div class="col-12">
       <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", '', class: 'btn btn-lg' %>
-      <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn-lg">Cancle appointment</button> <% end %>
+      <br>
+      <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn btn-ghost mt-4" style="width: 100%;">Cancle appointment</button> <% end %>
     </div>
   </div>
 </div>
@@ -61,7 +62,7 @@
       </div>
       <div class="modal-body text-left">
         <%= simple_form_for [@appointment] do |f| %>
-          <%= f.input :cancel_reason, placeholder: "Tell us why you have to cancel this appointment?"%>
+          <%= f.input :cancel_reason, label: 'Reason for cancellation', placeholder: "Tell us why you have to cancel this appointment?"%>
           <%= f.input :status, input_html: {value: 'cancelled'}, as: :hidden %>
       </div>
       <div class="modal-footer">
