@@ -1,5 +1,5 @@
 class Speciality < ApplicationRecord
   belongs_to :fixer
   belongs_to :problem
-  validates :problem, presence: true, uniqueness: true
+  validates :problem_id, uniqueness: true
 end
