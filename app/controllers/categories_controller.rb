@@ -1,16 +1,9 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:destroy]
 
   def index
     @categories = Category.all
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def new
@@ -24,11 +17,6 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    @category.update(category_params)
-    redirect_to categories_path
   end
 
   def destroy

@@ -3,19 +3,28 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :categories, only: [:index] do
-    resources :problems, only: [:index]
+  resources :categories, only: [:index, :new, :create, :destroy] do
+    resources :appointments, only: [:new, :create]
   end
 
-  resources :appointments, only: [:show, :create, :update]
+  resources :appointments, only: [:show, :update, :destroy]
 
   get "appointments/:id/preference", to: "appointments#preference", as: :appointment_preference
   get "appointments/:id/fixer", to: "appointments#fixer", as: :appointment_fixer
 
 
   resources :users, only: [:show] do
-    resources :fixers, only: [:new, :create, :destroy]
+    resources :fixers, only: [:new, :create]
   end
 
-  resources :problems, only: [:edit, :show, :update, :destroy]
+  resources :fixers, only: [:edit, :update, :destroy] do
+    resources :specialities, only: [:create]
+  end
+
+  get "fixers/:id/details", to: "fixers#details", as: :fixer_details
+  get "fixers/:id/appointments", to: "fixers#appointments", as: :fixer_appointments
+
+  resources :problems, only: [:show, :destroy]
+
+  resources :specialities, only: [:destroy]
 end

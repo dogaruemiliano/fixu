@@ -1,0 +1,4 @@
+<%= simple_form_for([fixer, speciality], remote: true) do |f| %>
+  <%= f.input :problem_id, collection: @categories, as: :grouped_select, group_method: :problems, :label_method => :content, :value_method => :id, label: "Choose a speciality", prompt: "Choose a problem you can fix" %>
+  <%= f.button :submit, "Add a speciality", class: 'btn-lg mt-4'%>
+<% end %>

@@ -3,11 +3,83 @@ require 'faker'
 # Data used for seeding
 users_data = [
   {
+    email: "ellyn@gmail.com",
+    password: "123456",
+    first_name: "Ellyn",
+    last_name: "Bouscasse",
+    address: "Carrer de Tuset, 13, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "avalon@gmail.com",
+    password: "123456",
+    first_name: "Avalon",
+    last_name: "van der Horst",
+    address: "Carrer de Tuset, 8, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "alex@gmail.com",
+    password: "123456",
+    first_name: "Alexander",
+    last_name: "Dubovoy",
+    address: "Carrer de París, 193, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "gus@gmail.com",
+    password: "123456",
+    first_name: "Gus",
+    last_name: "De Vita",
+    address: "Carrer d'Aragó, 141, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "prima@gmail.com",
+    password: "123456",
+    first_name: "Prima",
+    last_name: "Aulia Gusta",
+    address: "Passatge de Domingo, 3, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "louis@gmail.com",
+    password: "123456",
+    first_name: "Louis",
+    last_name: "Darche",
+    address: "Carrer dels Almogàvers, 122, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "valerie@gmail.com",
+    password: "123456",
+    first_name: "Valerie",
+    last_name: "Schraauwers",
+    address: "Carrer del Rosselló, 217, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
+    email: "claire@gmail.com",
+    password: "123456",
+    first_name: "Claire",
+    last_name: "Gautier",
+    address: "Carrer de Provença, 171, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number
+  },
+
+  {
     email: "emi@gmail.com",
     password: "123456",
     first_name: "Emiliano",
     last_name: "Dogaru",
-    address: "Barcelona, Arizala 57",
+    address: "Carrer d'Arizala, 57, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number
   },
 
@@ -16,7 +88,7 @@ users_data = [
     password: "123456",
     first_name: "Sangsoo",
     last_name: "Ra",
-    address: "Barcelona, Simo Oller 2",
+    address: "Plaça de Catalunya, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number
   },
   {
@@ -24,7 +96,7 @@ users_data = [
     password: "123456",
     first_name: "Abderrahim",
     last_name: "Nadifi",
-    address: "Barcelona, Grassot 101",
+    address: "Carrer d'en Grassot, 101, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number
   },
 
@@ -33,7 +105,7 @@ users_data = [
     password: "123456",
     first_name: "Leon",
     last_name: "Ellerbrock",
-    address: "Barcelona, Calvet 58",
+    address: "Carrer de Calvet, 58, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number
   }
 
@@ -41,13 +113,13 @@ users_data = [
 
 fixers_data = [
   {
-    start_time: Time.parse("8:00"),
+    start_time: Time.parse("08:00"),
     end_time: Time.parse("20:00"),
     unit_price: 10
   },
 
   {
-    start_time: Time.parse("9:00"),
+    start_time: Time.parse("09:00"),
     end_time: Time.parse("18:00"),
     unit_price: 20
   },
@@ -55,6 +127,36 @@ fixers_data = [
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("19:00"),
+    unit_price: 15
+  },
+
+  {
+    start_time: Time.parse("09:00"),
+    end_time: Time.parse("14:00"),
+    unit_price: 20
+  },
+
+  {
+    start_time: Time.parse("16:00"),
+    end_time: Time.parse("21:00"),
+    unit_price: 12
+  },
+
+  {
+    start_time: Time.parse("10:00"),
+    end_time: Time.parse("18:00"),
+    unit_price: 18
+  },
+
+  {
+    start_time: Time.parse("14:00"),
+    end_time: Time.parse("18:00"),
+    unit_price: 11
+  },
+
+  {
+    start_time: Time.parse("16:00"),
+    end_time: Time.parse("20:00"),
     unit_price: 15
   }
 ]
@@ -91,7 +193,7 @@ categories_data = [
       "Dishwasher doesn't start",
       "Dishwasher makes noise",
       "Water doesn't drain",
-      "Water leaks from Dishwasher",
+      "Water leaks from dishwasher",
       "Door Doesn't Latch"
     ]
   },
@@ -136,7 +238,9 @@ categories_data = [
       "Doesn't turn on",
       "Doesn't heat the water enough",
       "Leaks water",
-      "Water gets too hot"
+      "Water gets too hot",
+      "Banging, whistling or gurgling noises",
+      "Boiler switching itself off"
     ]
   },
 
@@ -146,9 +250,9 @@ categories_data = [
       "Low water pressure.",
       "Infrequent bursts of scalding hot water.",
       "Blown pressure relief device",
-      "Sparking inside microwave",
       "Noisy shower",
-      "Water is leaking from the wall"
+      "Leaky shower faucet",
+      "Bad smells"
     ]
   },
 
@@ -156,10 +260,12 @@ categories_data = [
     name: "Toilet",
     photo_id: "toilet",
     problems: [
-      "Leaks wateer",
+      "Leaks water",
       "Doesn't flush",
-      "Leaks smell",
+      "Broken tank",
       "Tank filling doesn't stop",
+      "Sewer line clog",
+      "Dripping sound with repetitive tank filling"
     ]
   },
 
@@ -171,29 +277,8 @@ categories_data = [
       "Clogged drain lines",
       "Hot water is not working",
       "Faucet is broken"]
-  },
+  }
 
-  # { name: "Oven" ,
-  #   problems: [
-  #     "Does not heat up",
-  #     "Oven constantly overheats",
-  #     "Oven door does not close properly",
-  #     "Oven burns kitchen units",
-  #     "Oven emits loud sounds",
-  #     "Oven fan continues to run"
-  #   ]
-  # },
-
-  # { name: "Cooker" ,
-  #   problems: [
-  #     "One or more elements do not heat up",
-  #     "No light",
-  #     "Thermostat trips when using grill",
-  #     "Noisy fan",
-  #     "Sparks or burning smell",
-  #     "Not functioning"
-  #   ]
-  # }
 ]
 
 puts "*" * 60
@@ -236,7 +321,7 @@ puts "Creating fixers"
 puts "-" * 30
 
 data_index = 0 # Helper to iterate throgh the fixers_data
-User.first(3).each do |user|
+User.first(8).each do |user|
   fixer = Fixer.new(fixers_data[data_index])
   fixer.user = user
   fixer.save!

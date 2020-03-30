@@ -1,0 +1,23 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">My Appointments</h2>
+    </div>
+    <div class="col-12">
+      <table>
+        <tr>
+          <th class="text-center"><p>Upcoming Appointments</p></th>
+        </tr>
+        <% @upcoming_appointments.each do |appointment| %>
+          <tr>
+            <td>
+              <a href=<%= appointment_path(appointment) %>>
+                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %> - <%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></p>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

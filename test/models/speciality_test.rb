@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SpecialtiesControllerTest < ActionDispatch::IntegrationTest
+class SpecialityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
