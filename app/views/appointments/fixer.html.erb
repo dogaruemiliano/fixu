@@ -29,8 +29,9 @@
       <% @fixers.each do |fixer| %>
         <div class="fixer-card py-4">
           <div class="fixer-avatar">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{fixer.user.lewagon_username}", class: "avatar" %>
-            <div class="fixer-price"><p><%= fixer.unit_price %>&euro;<br>/h</p></div>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
+<!--             <div class="fixer-price"><p><%#= fixer.unit_price %>&euro;<br>/h</p></div> -->
+            <div class="fixer-price"><p><%= humanized_money_with_symbol(fixer.price) %><br>/h</p></div>
           </div>
           <div class="fixer-detail px-4">
             <p style="font-weight: 700;"><%= fixer.user.full_name %></p>
@@ -41,7 +42,6 @@
             <%= simple_form_for @appointment do |f| %>
               <%= f.input :fixer_id, input_html: {value: fixer.id}, as: :hidden %>
               <%= f.input :status, input_html: {value: 'pending'}, as: :hidden %>
-              <%= f.input :price, input_html: {value: fixer.unit_price * @appointment.problem.duration}, as: :hidden %>
               <%= f.submit "Select", class: 'btn btn-ghost'%>
             <% end %>
           </div>

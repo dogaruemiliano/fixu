@@ -4,5 +4,6 @@ class Appointment < ApplicationRecord
   belongs_to :problem
 
   has_many_attached :photos
+  monetize :amount_cents
 
 end

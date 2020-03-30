@@ -54,6 +54,6 @@ class FixersController < ApplicationController
   end
 
   def fixer_params
-    params.require(:fixer).permit(:start_time, :end_time, :unit_price, :speciality_id)
+    params.require(:fixer).permit(:start_time, :end_time, :price_cents, :speciality_id)
   end
 end
