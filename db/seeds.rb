@@ -83,6 +83,16 @@ users_data = [
   },
 
   {
+    email: "fanny@gmail.com",
+    password: "123456",
+    first_name: "Fanny",
+    last_name: "Rojon",
+    address: "Carrer de Lincoln, 15, Barcelona",
+    phone_number: Faker::PhoneNumber.phone_number,
+    lewagon_username: "fanny-rojon"
+  },
+
+  {
     email: "emi@gmail.com",
     password: "123456",
     first_name: "Emiliano",
@@ -163,13 +173,19 @@ fixers_data = [
   {
     start_time: Time.parse("14:00"),
     end_time: Time.parse("18:00"),
-    unit_price: 11
+    unit_price: 12
   },
 
   {
     start_time: Time.parse("16:00"),
     end_time: Time.parse("20:00"),
     unit_price: 15
+  },
+
+  {
+    start_time: Time.parse("09:00"),
+    end_time: Time.parse("18:00"),
+    unit_price: 10
   }
 ]
 
@@ -294,28 +310,39 @@ categories_data = [
 
 specialities_data = [
   { fixer_id: 1,
-    problem_id: [1, 4, 7, 9, 10, 16, 17, 18, 20, 25, 27, 29, 30, 31, 32, 33, 41, 42, 50, 52, 56, 57, 58, 60]
+    problem_id: [1, 4, 7, 10, 16, 17, 18, 20, 25, 27, 29, 30, 31, 32, 33, 41, 42, 50, 51, 52, 56, 57, 58, 60]
   },
+
   { fixer_id: 2,
     problem_id: [1, 2, 3, 4, 6, 8, 10, 11, 12, 20, 25, 26, 27, 32, 33, 34, 35, 36, 40, 42, 50, 51, 52, 53, 59]
   },
+
   { fixer_id: 3,
-    problem_id: [1, 2, 3, 5, 6, 9, 11, 13, 14, 15, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47]
+    problem_id: [2, 5, 6, 9, 11, 13, 14, 15, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47, 54, 59]
   },
+
   { fixer_id: 4,
     problem_id: [3, 6, 7, 8, 9, 11, 12, 13, 16, 21, 22, 24, 27, 32, 33, 34, 35, 36, 40, 41, 48, 49, 54, 55, 58]
   },
+
   { fixer_id: 5,
     problem_id: [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 55, 56, 57, 58, 59, 60]
   },
+
   { fixer_id: 6,
     problem_id: [7, 8, 9, 10, 11, 12, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
   },
+
   { fixer_id: 7,
-    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 19, 21, 22, 24, 27, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 19, 21, 22, 24, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
   },
+
   { fixer_id: 8,
-    problem_id: [2, 4, 5, 8, 10, 13, 14, 15, 17, 18, 19, 20, 23, 26, 28, 29, 30, 31, 37, 38, 39, 43, 49, 50, 59]
+    problem_id: [2, 4, 5, 10, 13, 14, 15, 17, 18, 19, 20, 23, 26, 28, 29, 30, 31, 37, 38, 39, 43, 49, 50, 53, 59]
+  },
+
+  { fixer_id: 9,
+    problem_id: [4, 7, 14, 17, 18, 23, 25, 26, 28, 29, 30, 31, 34, 35, 36, 43, 44, 45, 46, 47, 48, 55, 56, 57, 60]
   }
 ]
 puts "*" * 60
@@ -358,7 +385,7 @@ puts "Creating fixers"
 puts "-" * 30
 
 data_index = 0 # Helper to iterate throgh the fixers_data
-User.first(8).each do |user|
+User.first(9).each do |user|
   fixer = Fixer.new(fixers_data[data_index])
   fixer.user = user
   fixer.save!
