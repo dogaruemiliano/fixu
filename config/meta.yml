@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "FixU"
+meta_title: "FixU - 4 clicks and get it fixed"
+meta_description: "FixU helps people to get an appointment with handymen to with only 4 click! No more hassle and wait for handymen to come to your place to fix any problem you have in your home. Download FixU and let us FixU soon!"
+meta_image: "meta.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
