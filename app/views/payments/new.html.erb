@@ -1,21 +1,23 @@
-<div class="container">
-  <div class="row py-4">
-    <!-- <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div> -->
-    <div class="col">
-      <h1>Checkout summary</h1>
+<% content_for(:navbar) do %>
+  <%= render "shared/navbar2" %>
+<% end %>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2>Checkout summary</h2>
       <p>Payment for your appointement with <strong><%= @appointment.fixer.user.full_name %></strong> for <strong><%= humanized_money_with_symbol @appointment.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <!-- Commented for the lecture, remove comments. -->
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @appointment.checkout_session_id %>'
-          });
-        });
-      </script>
+      <button id="pay" class="btn btn-lg">Proceed to checkout</button>
     </div>
   </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const paymentButton = document.getElementById('pay');
+  paymentButton.addEventListener('click', () => {
+    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    stripe.redirectToCheckout({
+      sessionId: '<%= @appointment.checkout_session_id %>'
+    });
+  });
+</script>
