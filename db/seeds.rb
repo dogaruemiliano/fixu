@@ -137,55 +137,55 @@ fixers_data = [
   {
     start_time: Time.parse("08:00"),
     end_time: Time.parse("20:00"),
-    price_cents: 10
+    price_cents: 1000
   },
 
   {
     start_time: Time.parse("09:00"),
     end_time: Time.parse("18:00"),
-    price_cents: 20
+    price_cents: 2000
   },
 
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("19:00"),
-    price_cents: 15
+    price_cents: 1500
   },
 
   {
     start_time: Time.parse("09:00"),
     end_time: Time.parse("14:00"),
-    price_cents: 20
+    price_cents: 2000
   },
 
   {
     start_time: Time.parse("16:00"),
     end_time: Time.parse("21:00"),
-    price_cents: 12
+    price_cents: 1200
   },
 
   {
     start_time: Time.parse("10:00"),
     end_time: Time.parse("18:00"),
-    price_cents: 18
+    price_cents: 1800
   },
 
   {
     start_time: Time.parse("14:00"),
     end_time: Time.parse("18:00"),
-    price_cents: 11
+    price_cents: 1100
   },
 
   {
     start_time: Time.parse("16:00"),
     end_time: Time.parse("20:00"),
-    price_cents: 15
+    price_cents: 1500
   },
 
   {
     start_time: Time.parse("09:00"),
     end_time: Time.parse("18:00"),
-    price_cents: 10
+    price_cents: 1000
   }
 ]
 
