@@ -36,10 +36,8 @@ class AppointmentsController < ApplicationController
   def update
     if @appointment.update(appointment_params)
       if @appointment.fixer
-        #for security reason we define the amount in the controller and not in the form
         @appointment.amount_cents = @appointment.fixer.price_cents* @appointment.problem.duration
         @appointment.save
-        # add payment
         session = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],
           line_items: [{

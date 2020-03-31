@@ -1,6 +1,7 @@
 table {
   margin: 32px 0;
   width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 th {
@@ -14,8 +15,12 @@ th p {
 }
 td {
   border: 1px solid $dark-blue;
+  padding: 0;
 }
 td p {
   margin: 6px 12px;
   color: $dark-blue;
+}
+td > ul > li {
+  padding: 4px;
 }

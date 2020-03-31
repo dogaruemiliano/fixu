@@ -39,6 +39,10 @@ textarea {
 
 ul {
   padding: 0;
+  margin: 0;
+  &.active {
+    display: block !important;
+  }
 }
 
 label {

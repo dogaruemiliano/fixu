@@ -2,16 +2,54 @@
   <div class="row">
     <div class="col-12">
       <h2>My details</h2>
-      <h3>My working hours</h3>
-      <p><%= @starting_hour %> to <%= @ending_hour %></p>
-      <h3>My rates per hour</h3>
-      <p><%= @fixer.unit_price %>&euro;</p>
-      <h3>My specialities</h3>
-      <ul>
-        <% @specialities.each do |speciality| %>
-          <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><strong><%= speciality.problem.category.name %></strong> - <%= speciality.problem.content %></p> <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
+      <table>
+        <tr>
+          <th class="text-center"><p>My working hours</p></th>
+        </tr>
+        <tr>
+          <td class="text-center"><p><%= @starting_hour %> to <%= @ending_hour %></p></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th class="text-center"><p>My rates per hour</p></th>
+        </tr>
+        <tr>
+          <td class="text-center"><p><%= humanized_money_with_symbol(@fixer.price) %></p></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th class="text-center"><p>My specialities</p></th>
+        </tr>
+        <% @categories.each do |category| %>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between" style="background: #EAEAEA;"><p><strong><%= category.name %></strong></p><button style="color: #04316C;" id="<%= category.name.downcase.gsub(/\s+/, "") %>-btn">+</button></div>
+              <ul style="display: none;" id=<%= category.name.downcase.gsub(/\s+/, "") %>>
+                <% @specialities.each do |speciality| %>
+                  <% if speciality.problem.category == category %>
+                    <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><%= speciality.problem.content %></p> <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+          <script>
+            const <%= category.name.downcase.gsub(/\s+/, "") %>btn = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>-btn');
+
+            <%= category.name.downcase.gsub(/\s+/, "") %>btn.addEventListener("click", (event) => {
+              <%= category.name.downcase.gsub(/\s+/, "") %>list = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>');
+              <%= category.name.downcase.gsub(/\s+/, "") %>list.classList.toggle('active');
+              if (<%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML === "+") {
+                <%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML = "-";
+              } else {
+                <%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML = "+";
+              }
+            });
+          </script>
         <% end %>
-      </ul>
+      </table>
       <%= link_to '', data: { toggle: "modal", target: "#specialityModal" } do %> <div class="btn btn-lg">Add a speciality</div> <% end %>
     </div>
   </div>
@@ -36,3 +74,4 @@
     </div>
   </div>
 </div>
+
