@@ -42,12 +42,22 @@
         <tr>
           <td><p><strong>Price:</strong> <%= humanized_money_with_symbol(@appointment.amount) %></p></td>
         </tr>
+        <tr>
+          <td><p><strong>Location:</strong> <%= @appointment.address %></p></td>
+        </tr>
       </table>
+      <div
+        id="map"
+        style="width: 100%;
+        height: 300px;"
+        data-marker="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
     <div class="col-12">
       <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", '', class: 'btn btn-lg' %>
       <br>
-      <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn btn-ghost mt-4" style="width: 100%;">Cancle appointment</button> <% end %>
+      <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn btn-ghost mt-4" style="width: 100%;">Cancel appointment</button> <% end %>
     </div>
   </div>
 </div>
