@@ -5,7 +5,8 @@ flatpickr(".datepicker", {
   disableMobile: "true",
   dateFormat: "d-m-Y H:i",
   minuteIncrement: 10,
-  minDate: "today"
+  minDate: "today",
+  defaultDate: new Date()
 
 });
 flatpickr(".timepicker", {
@@ -13,5 +14,6 @@ flatpickr(".timepicker", {
   disableMobile: "true",
   noCalendar: true,
   dateFormat: "H:i",
-  minuteIncrement: 10
+  minuteIncrement: 10,
+  defaultDate: new Date()
 });

@@ -1,11 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 
 const initMapbox = () => {
+
   const mapElement = document.getElementById('map');
-  const marker = JSON.parse(mapElement.dataset.marker);
 
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+
+    const marker = JSON.parse(mapElement.dataset.marker);
 
     const map = new mapboxgl.Map({
       container: 'map',
@@ -14,13 +16,19 @@ const initMapbox = () => {
       zoom: 12
     });
 
-    new mapboxgl.Marker()
+    map.addControl(new mapboxgl.NavigationControl());
+
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '25px';
+    element.style.height = '25px';
+
+    new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   }
 };
-
-
-
 
 export { initMapbox };

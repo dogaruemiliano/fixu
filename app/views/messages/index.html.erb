@@ -28,7 +28,7 @@
       <%= simple_form_for [@appointment, @new_message] do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <textarea rows="1" class="form-control text required" name="message[content]" id="message_content"></textarea>
+        <textarea rows="1" class="form-control text required" name="message[content]" id="message_content" placeholder="Share more details..."></textarea>
         <div class="col-8 offset-2 mt-4">
           <%= f.submit "Send", class: 'btn btn-lg'%>
         </div>

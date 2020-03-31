@@ -17,7 +17,8 @@ class AppointmentsController < ApplicationController
 
     @marker = {
       lat: @appointment.latitude,
-      lng: @appointment.longitude
+      lng: @appointment.longitude,
+      image_url: helpers.asset_url('handyman.jpg')
     }
   end
 
