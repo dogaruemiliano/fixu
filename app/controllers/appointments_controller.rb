@@ -82,6 +82,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:time, :status, :amount_cents, :comment, :address, :problem_id, :cancel_reason, :user_id, :fixer_id, photos: []) # to be completed
+    params.require(:appointment).permit(:time, :status, :amount_cents, :comment, :address, :problem_id, :payment_status, :cancel_reason, :user_id, :fixer_id, photos: []) # to be completed
   end
 end
