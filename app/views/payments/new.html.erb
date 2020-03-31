@@ -6,8 +6,15 @@
   <div class="row">
     <div class="col-12">
       <h2>Checkout summary</h2>
-      <p>Payment for your appointement with <strong><%= @appointment.fixer.user.full_name %></strong> for <strong><%= humanized_money_with_symbol @appointment.amount %></strong></p>
-      <button id="pay" class="btn btn-lg">Proceed to checkout</button>
+      <div style="margin-top: 4rem;">
+        <h3>Your fixer: <strong style="color: #04316C;"><%= @appointment.fixer.user.full_name %></strong></h3>
+      </div>
+      <div style="margin-top: 2rem;">
+        <h3>Total amount: <strong style="color: #04316C;"><%= humanized_money_with_symbol @appointment.amount %></strong></h3>
+      </div>
+      <div style="margin-top: 8rem;">
+        <button id="pay" class="btn btn-lg">Proceed to checkout</button>
+      </div>
     </div>
   </div>
 </div>
