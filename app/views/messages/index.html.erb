@@ -1,46 +1,41 @@
-<div class = "container my-4">
-  <div class = "row">
-    <div class = "col-12">
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
       <% if @appointment.user == current_user %>
-        <h1>Chat with <%= @appointment.fixer.user.first_name %></h1>
+        <h2>Chat with <%= @appointment.fixer.user.first_name %></h2>
       <% else %>
-        <h1>Chat with <%= @appointment.user.first_name %></h1>
+        <h2>Chat with <%= @appointment.user.first_name %></h2>
       <% end %>
-      <div>
-        <ul>
-          <% @messages.each do |message| %>
-          <li>
-           <% if message.user == current_user %>
-           <div class="chat">
-            <div class="chat_box sender">
-              <%= message.content%>
+    </div>
+    <div class="col-12 chat-box">
+      <% @messages.each do |message| %>
+        <% if message.user == current_user %>
+          <div class="col-8 offset-4">
+            <div class="chat-bubble-mine">
+              <p><%= message.content%></p>
             </div>
           </div>
-          <% else %>
-           <div class=chat>
-            <div class="chat_box receiver">
-              <%= message.content%>
+        <% else %>
+          <div class="col-8">
+            <div class="chat-bubble">
+              <p><%= message.content%></p>
             </div>
           </div>
-        </li>
         <% end %>
-      </ul>
       <% end %>
-      </div>
-      <div>
-        <%= simple_form_for [@appointment, @new_message] do |f| %>
+    </div>
+    <div class="col-12">
+      <%= simple_form_for [@appointment, @new_message] do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :content%>
+        <textarea rows="1" class="form-control text required" name="message[content]" id="message_content"></textarea>
+        <div class="col-8 offset-2 mt-4">
+          <%= f.submit "Send", class: 'btn btn-lg'%>
         </div>
-
-        <div class="form-actions text-center">
-          <%= f.submit "Send", class: 'btn btn-lg send'%>
-        </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
