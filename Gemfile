@@ -15,11 +15,13 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'faker'
 
 gem 'cloudinary'
 gem 'money-rails'
 gem 'stripe'
+gem 'geocoder'
+
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
