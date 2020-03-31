@@ -37,11 +37,9 @@
           </tr>
           <script>
             const <%= category.name.downcase.gsub(/\s+/, "") %>btn = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>-btn');
-
             <%= category.name.downcase.gsub(/\s+/, "") %>btn.addEventListener("click", (event) => {
               <%= category.name.downcase.gsub(/\s+/, "") %>list = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>');
               <%= category.name.downcase.gsub(/\s+/, "") %>list.classList.toggle('active');
-              console.log(event.currentTarget.innerHTML);
               if (event.currentTarget.innerHTML === '<i class="fas fa-plus"></i>') {
                 event.currentTarget.innerHTML = '<i class="fas fa-minus"></i>';
               } else {
