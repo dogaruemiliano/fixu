@@ -83,6 +83,7 @@ class AppointmentsController < ApplicationController
   def fixer
     problem = @appointment.problem
     @fixers = Fixer.joins(:specialities).where(specialities: {problem: problem})
+    @fixers_price =  Fixer.joins(:specialities).where(specialities: {problem: problem}).order('price_cents')
   end
 
   private

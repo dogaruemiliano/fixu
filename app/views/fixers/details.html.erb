@@ -1,10 +1,15 @@
 <div class="container my-4">
   <div class="row">
     <div class="col-12">
-      <h2>My details</h2>
+      <% if @fixer == current_user %>
+        <h2>My details</h2>
+        <%= link_to 'Edit', edit_fixer_path(@fixer), class: 'btn btn-ghost' %>
+      <% else %>
+        <h2><%= @fixer.user.full_name %>'s details</h2>
+      <% end %>
       <table>
         <tr>
-          <th class="text-center"><p>My working hours</p></th>
+          <th class="text-center"><p>Working hours</p></th>
         </tr>
         <tr>
           <td class="text-center"><p><%= @starting_hour %> to <%= @ending_hour %></p></td>
@@ -12,7 +17,7 @@
       </table>
       <table>
         <tr>
-          <th class="text-center"><p>My rates per hour</p></th>
+          <th class="text-center"><p>Rates per hour</p></th>
         </tr>
         <tr>
           <td class="text-center"><p><%= humanized_money_with_symbol(@fixer.price) %></p></td>
@@ -20,7 +25,7 @@
       </table>
       <table>
         <tr>
-          <th class="text-center"><p>My specialities</p></th>
+          <th class="text-center"><p>Specialities</p></th>
         </tr>
         <% @categories.each do |category| %>
           <tr>

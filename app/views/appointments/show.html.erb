@@ -14,7 +14,7 @@
           <p>5,0 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
         </div>
         <div class="fixer-btn">
-          <%= link_to "#{@appointment.fixer.user.first_name}'s profile", '', class: 'btn btn-ghost profile' %>
+          <%= link_to "#{@appointment.fixer.user.first_name}'s profile", fixer_details_path(@appointment.fixer), class: 'btn btn-ghost profile' %>
         </div>
       </div>
     </div>
