@@ -1,0 +1,29 @@
+.chat-box {
+  overflow-y: scroll;
+  height: 55vh;
+  margin: 16px 0;
+}
+
+.chat-bubble {
+  color: white;
+  display: flex;
+  flex: 0 1 10%;
+}
+.chat-bubble-mine {
+  background: white;
+  color: $dark-blue;
+  display: flex;
+  flex: 0 1 10%;
+  justify-content: flex-end;
+}
+.chat-bubble p {
+  background: $dark-blue;
+  padding: 8px 16px;
+  border-radius: 15px;
+  border: 1px solid $dark-blue;
+}
+.chat-bubble-mine p {
+  padding: 8px 16px;
+  border-radius: 15px;
+  border: 1px solid $dark-blue;
+}

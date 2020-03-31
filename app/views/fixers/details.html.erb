@@ -25,7 +25,7 @@
         <% @categories.each do |category| %>
           <tr>
             <td>
-              <div class="d-flex justify-content-between" style="background: #EAEAEA;"><p><strong><%= category.name %></strong></p><button style="color: #04316C;" id="<%= category.name.downcase.gsub(/\s+/, "") %>-btn">+</button></div>
+              <div class="d-flex justify-content-between" style="background: #EAEAEA;"><p><strong><%= category.name %></strong></p><button style="color: #04316C;" id="<%= category.name.downcase.gsub(/\s+/, "") %>-btn"><i class="fas fa-plus"></i></button></div>
               <ul style="display: none;" id=<%= category.name.downcase.gsub(/\s+/, "") %>>
                 <% @specialities.each do |speciality| %>
                   <% if speciality.problem.category == category %>
@@ -37,20 +37,21 @@
           </tr>
           <script>
             const <%= category.name.downcase.gsub(/\s+/, "") %>btn = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>-btn');
-
             <%= category.name.downcase.gsub(/\s+/, "") %>btn.addEventListener("click", (event) => {
               <%= category.name.downcase.gsub(/\s+/, "") %>list = document.getElementById('<%= category.name.downcase.gsub(/\s+/, "") %>');
               <%= category.name.downcase.gsub(/\s+/, "") %>list.classList.toggle('active');
-              if (<%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML === "+") {
-                <%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML = "-";
+              if (event.currentTarget.innerHTML === '<i class="fas fa-plus"></i>') {
+                event.currentTarget.innerHTML = '<i class="fas fa-minus"></i>';
               } else {
-                <%= category.name.downcase.gsub(/\s+/, "") %>btn.innerHTML = "+";
+                event.currentTarget.innerHTML = '<i class="fas fa-plus"></i>';
               }
             });
           </script>
         <% end %>
       </table>
-      <%= link_to '', data: { toggle: "modal", target: "#specialityModal" } do %> <div class="btn btn-lg">Add a speciality</div> <% end %>
+      <% if @fixer.user == current_user %>
+        <%= link_to '', data: { toggle: "modal", target: "#specialityModal" } do %> <div class="btn btn-lg">Add a speciality</div> <% end %>
+      <% end %>
     </div>
   </div>
 </div>

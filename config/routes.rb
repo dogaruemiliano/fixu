@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :appointments, only: [:show, :update, :destroy] do
     resources :payments, only: :new
+    resources :messages, only: [:new, :create, :index]
   end
 
   get "appointments/:id/preference", to: "appointments#preference", as: :appointment_preference

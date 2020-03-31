@@ -56,7 +56,13 @@
       ></div>
     </div>
     <div class="col-12">
-      <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", '', class: 'btn btn-lg' %>
+      <% if @appointment.user == current_user %>
+        <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
+      <% else %>
+        <%= link_to "Chat now with #{@appointment.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
+      <% end %>
+
+      <%#= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
       <br>
       <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn btn-ghost mt-4" style="width: 100%;">Cancel appointment</button> <% end %>
     </div>
