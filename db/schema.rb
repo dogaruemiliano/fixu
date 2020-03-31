@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_160659) do
+ActiveRecord::Schema.define(version: 2020_03_31_090918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_160659) do
     t.string "address"
     t.text "cancel_reason"
     t.string "checkout_session_id"
-    t.string "payment_status"
     t.integer "amount_cents", default: 0, null: false
     t.index ["fixer_id"], name: "index_appointments_on_fixer_id"
     t.index ["problem_id"], name: "index_appointments_on_problem_id"

@@ -9,6 +9,10 @@ class AppointmentsController < ApplicationController
     @day = @appointment.time.day
     @hour = @appointment.time.hour
     @min = @appointment.time.min
+    if @appointment.status == 'pending'
+      @appointment.status = "confirmed"
+      @appointment.save
+    end
   end
 
   def new
@@ -22,7 +26,6 @@ class AppointmentsController < ApplicationController
     @problems = @category.problems
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
-    @appointment.payment_status = "pending"
     if @appointment.save
       redirect_to appointment_preference_path(@appointment)
     else
@@ -62,7 +65,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    if @appointment.status == "created"
+    if (@appointment.status == "created") || (@appointment.status == "pending")
       redirect_to root_path
     end
   end
@@ -82,6 +85,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:time, :status, :amount_cents, :comment, :address, :problem_id, :payment_status, :cancel_reason, :user_id, :fixer_id, photos: []) # to be completed
+    params.require(:appointment).permit(:time, :status, :amount_cents, :comment, :address, :problem_id, :cancel_reason, :user_id, :fixer_id, photos: []) # to be completed
   end
 end
