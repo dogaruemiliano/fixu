@@ -50,7 +50,8 @@ class FixersController < ApplicationController
 
   def appointments
     @appointments = @fixer.appointments
-    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed"}
+    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time >= Date.today}
+    @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < Date.today}
   end
 
   private

@@ -28,11 +28,11 @@
     </div>
     <div class="col-12" id="past" style="display: none;">
       <table>
-        <% @upcoming_appointments.each do |appointment| %>
+        <% @past_appointments.each do |appointment| %>
           <tr>
             <td>
               <a href=<%= appointment_path(appointment) %>>
-                <p style="font-size: 16px;">hola - <%= appointment.fixer.user.first_name %> - <%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></p>
+                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %> - <%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></p>
               </a>
             </td>
           </tr>
@@ -65,5 +65,4 @@
       }
     })
   );
-
 </script>
