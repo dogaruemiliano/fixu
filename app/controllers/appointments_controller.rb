@@ -9,10 +9,16 @@ class AppointmentsController < ApplicationController
     @day = @appointment.time.day
     @hour = @appointment.time.hour
     @min = @appointment.time.min
+
     if @appointment.status == 'pending'
       @appointment.status = "confirmed"
       @appointment.save
     end
+
+    @marker = {
+      lat: @appointment.latitude,
+      lng: @appointment.longitude
+    }
   end
 
   def new

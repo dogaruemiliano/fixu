@@ -42,7 +42,18 @@
         <tr>
           <td><p><strong>Price:</strong> <%= humanized_money_with_symbol(@appointment.amount) %></p></td>
         </tr>
+        <tr>
+          <td><p><strong>Location:</strong> <%= @appointment.address %></p></td>
+        </tr>
       </table>
+      <div
+        id="map"
+        style="width: 100%;
+        height: 300px;
+        margin-bottom: 15px;"
+        data-marker="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
     <div class="col-12">
       <% if @appointment.user == current_user %>
