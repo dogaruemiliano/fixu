@@ -20,6 +20,8 @@ class AppointmentsController < ApplicationController
       lng: @appointment.longitude,
       image_url: helpers.asset_url('handyman.jpg')
     }
+
+    @review = Review.new
   end
 
   def new

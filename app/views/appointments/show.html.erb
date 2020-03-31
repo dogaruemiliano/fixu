@@ -56,13 +56,32 @@
       ></div>
     </div>
     <div class="col-12">
+      <h3>Reviews</h3>
+      <% if @appointment.reviews.any? %>
+        <ul>
+          <% @appointment.reviews.each do |review| %>
+            <li class="d-flex justify-content-between"><p><% review.rating.times { %> <i class="fas fa-star"></i> <% } %> - <%= review.content %></p>
+              <%= link_to review_path(review), method: :delete, data: { confirm: "Are you sure to delete this review?"} do %> <button class="btn btn-ghost">Delete</button> <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p class="text-center">No review yet!</p>
+      <% end %>
+      <% if @appointment.user == current_user %>
+        <%= simple_form_for([ @appointment, @review ]) do |f| %>
+          <%= f.input :rating, collection: [1, 2, 3, 4, 5]  %>
+          <%= f.input :content %>
+          <%= f.button :submit, 'Write a review',class: 'btn btn-lg' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-12">
       <% if @appointment.user == current_user %>
         <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
       <% else %>
         <%= link_to "Chat now with #{@appointment.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
       <% end %>
-
-      <%#= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
       <br>
       <%= link_to '', data: { toggle: "modal", target: "#appointmentCancelModal" } do %> <button class="btn btn-ghost mt-4" style="width: 100%;">Cancel appointment</button> <% end %>
     </div>

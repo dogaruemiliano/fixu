@@ -8,6 +8,7 @@ class Appointment < ApplicationRecord
 
   has_many_attached :photos
   has_many :messages, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   monetize :amount_cents
 
