@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_one :fixer, dependent: :destroy
   has_many :appointments
+  has_many :messages, dependent: :destroy
 
   def full_name
     return "#{first_name} #{last_name}"
