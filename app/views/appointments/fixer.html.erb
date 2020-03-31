@@ -5,7 +5,7 @@
 <div class="container my-4">
   <div class="row" id="fixer-loader">
     <div class="col-12">
-      <h2 class="text-center">Looking for Fixers</h2>
+      <h2>Looking for Fixers</h2>
     </div>
     <div class="col-6 offset-3">
       <div class="dots">
@@ -17,7 +17,7 @@
   </div>
   <div class="row" id="fixer-choice">
     <div class="col-12">
-      <h2 class="text-center">Top Fixers</h2>
+      <h2>Top Fixers</h2>
     </div>
     <div class="col-6 offset-3">
       <div class="dots">
@@ -29,8 +29,7 @@
       <% @fixers.each do |fixer| %>
         <div class="fixer-card py-4">
           <div class="fixer-avatar">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar" %>
-<!--             <div class="fixer-price"><p><%#= fixer.unit_price %>&euro;<br>/h</p></div> -->
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{fixer.user.lewagon_username}", class: "avatar" %>
             <div class="fixer-price"><p><%= humanized_money_with_symbol(fixer.price) %><br>/h</p></div>
           </div>
           <div class="fixer-detail px-4">

@@ -21,10 +21,12 @@ h2 {
   font-family: $h2-font;
   color: $dark-blue;
   font-weight: bold;
+  text-align: center;
 }
 
 h3 {
   font-size: 24px;
+  text-align: center;
 }
 
 p {
@@ -37,6 +39,10 @@ textarea {
 
 ul {
   padding: 0;
+  margin: 0;
+  &.active {
+    display: block !important;
+  }
 }
 
 label {

@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to '<', :back, class: 'back' %>
-  <% if @appointment && @appointment.status == 'created' %>
+  <% if (@appointment && @appointment.status == 'created') || (@appointment && @appointment.status == 'pending') %>
     <%= link_to 'x', appointment_path(@appointment), method: :delete, class: 'cancel' %>
   <% else %>
     <%= link_to 'x', root_path, class: 'cancel'  %>

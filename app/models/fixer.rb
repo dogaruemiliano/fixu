@@ -6,6 +6,5 @@ class Fixer < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-  #validates :price, presence: true, numericality: true
   monetize :price_cents
 end

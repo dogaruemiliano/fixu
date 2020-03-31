@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :appointments, only: [:show, :update, :destroy] do
-  # add payments routes here nested under appointements
     resources :payments, only: :new
   end
 
   get "appointments/:id/preference", to: "appointments#preference", as: :appointment_preference
   get "appointments/:id/fixer", to: "appointments#fixer", as: :appointment_fixer
-# get "appointments/:id/payment", to: "appointments#payment", as: :appointment_payment
 
   resources :users, only: [:show] do
     resources :fixers, only: [:new, :create]

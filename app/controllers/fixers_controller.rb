@@ -9,7 +9,7 @@ class FixersController < ApplicationController
   def create
     @fixer = Fixer.new(fixer_params)
     @fixer.user = current_user
-
+    @fixer.price_cents = @fixer.price_cents * 100
     if @fixer.save!
       redirect_to root_path
     else
@@ -38,7 +38,13 @@ class FixersController < ApplicationController
     @speciality = Speciality.new
     @categories = Category.all
     @specialities = @fixer.specialities
-    @starting_hour =  "#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
+
+
+    if @fixer.start_time.hour <= 9
+      @starting_hour = "0#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
+    else
+      @starting_hour = "#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
+    end
     @ending_hour = "#{@fixer.end_time.hour}:#{@fixer.end_time.min}0"
   end
 
