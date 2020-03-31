@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_090918) do
+ActiveRecord::Schema.define(version: 2020_03_31_101848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 2020_03_31_090918) do
     t.index ["user_id"], name: "index_fixers_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "appointment_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_messages_on_appointment_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "problems", force: :cascade do |t|
     t.string "content"
     t.bigint "category_id"
@@ -111,6 +121,8 @@ ActiveRecord::Schema.define(version: 2020_03_31_090918) do
   add_foreign_key "appointments", "problems"
   add_foreign_key "appointments", "users"
   add_foreign_key "fixers", "users"
+  add_foreign_key "messages", "appointments"
+  add_foreign_key "messages", "users"
   add_foreign_key "problems", "categories"
   add_foreign_key "specialities", "fixers"
   add_foreign_key "specialities", "problems"
