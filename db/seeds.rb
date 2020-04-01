@@ -1,5 +1,4 @@
 require 'faker'
-
 # Data used for seeding
 users_data = [
   {
@@ -344,6 +343,12 @@ specialities_data = [
   { fixer_id: 9,
     problem_id: [4, 7, 14, 17, 18, 23, 25, 26, 28, 29, 30, 31, 34, 35, 36, 43, 44, 45, 46, 47, 48, 55, 56, 57, 60]
   }
+]
+appointment_data = [
+
+]
+review_data = [
+
 ]
 puts "*" * 60
 puts "Seeding started"
