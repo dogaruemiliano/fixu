@@ -1,23 +1,15 @@
 <div class="container my-4">
   <div class="row">
     <div class="col-12">
-      <% if @fixer == current_user %>
+      <% if @fixer.user == current_user %>
         <h2>My details</h2>
-        <%= link_to 'Edit', edit_fixer_path(@fixer), class: 'btn btn-ghost' %>
+        <div class="col-4 offset-4 text-center"><%= link_to 'Edit', edit_fixer_path(@fixer), class: 'btn btn-ghost' %></div>
       <% else %>
         <h2><%= @fixer.user.full_name %>'s details</h2>
       <% end %>
       <table>
         <tr>
-          <th class="text-center"><p>Working hours</p></th>
-        </tr>
-        <tr>
-          <td class="text-center"><p><%= @starting_hour %> to <%= @ending_hour %></p></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <th class="text-center"><p>Rates per hour</p></th>
+          <th><p>Rates per hour</p></th>
         </tr>
         <tr>
           <td class="text-center"><p><%= humanized_money_with_symbol(@fixer.price) %></p></td>
@@ -25,7 +17,35 @@
       </table>
       <table>
         <tr>
-          <th class="text-center"><p>Specialities</p></th>
+          <th><p>Working hours</p></th>
+        </tr>
+        <tr>
+          <td class="text-center"><p><%= @starting_hour %> to <%= @ending_hour %></p></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th><p>Reviews</p></th>
+        </tr>
+        <% if @fixer.reviews.any? %>
+          <% @fixer.reviews.each do |review| %>
+            <tr>
+              <td class="d-flex justify-content-between m-1"><p style="font-size: 16px;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %> - <%= review.content %></p>
+                <% if review.appointment.user == current_user %>
+                  <%= link_to review_path(review), method: :delete, data: { confirm: "Are you sure to delete this review?"} do %> <button class="btn btn-ghost">Delete</button> <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td><p class="text-center">No review yet!</p></td>
+          </tr>
+        <% end %>
+      </table>
+      <table>
+        <tr>
+          <th><p>Specialities</p></th>
         </tr>
         <% @categories.each do |category| %>
           <tr>
