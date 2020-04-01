@@ -30,9 +30,9 @@
         <% if @fixer.reviews.any? %>
           <% @fixer.reviews.each do |review| %>
             <tr>
-              <td class="d-flex justify-content-between m-1"><p style="font-size: 16px;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %> - <%= review.content %></p>
+              <td data-review-id="<%= review.id %>" class="d-flex justify-content-between m-1"><p style="font-size: 16px;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %> - <%= review.content %></p>
                 <% if review.appointment.user == current_user %>
-                  <%= link_to review_path(review), method: :delete, data: { confirm: "Are you sure to delete this review?"} do %> <button class="btn btn-ghost">Delete</button> <% end %>
+                  <div><%= link_to "Delete", review_path(review), class: 'btn btn-ghost', method: :delete, remote: true, data: { confirm: "Are you sure to delete this review?"} %></div> </li>
                 <% end %>
               </td>
             </tr>
@@ -54,7 +54,10 @@
               <ul style="display: none;" id=<%= category.name.downcase.gsub(/\s+/, "") %>>
                 <% @specialities.each do |speciality| %>
                   <% if speciality.problem.category == category %>
-                    <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><%= speciality.problem.content %></p> <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete , remote: true , data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
+                    <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><%= speciality.problem.content %></p>
+                      <% if speciality.fixer.user == current_user %>
+                        <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete, remote: true, data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
+                      <% end %>
                   <% end %>
                 <% end %>
               </ul>
