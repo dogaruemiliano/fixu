@@ -57,15 +57,6 @@
     </div>
     <div class="col-12">
       <% if @appointment.user == current_user %>
-        <%= simple_form_for([ @appointment, @review ]) do |f| %>
-          <%= f.input :rating, collection: [1, 2, 3, 4, 5]  %>
-          <%= f.input :content %>
-          <%= f.button :submit, 'Write a review',class: 'btn btn-lg' %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="col-12">
-      <% if @appointment.user == current_user %>
         <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
       <% else %>
         <%= link_to "Chat now with #{@appointment.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>

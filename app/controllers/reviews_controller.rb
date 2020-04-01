@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @appointment = Appointment.find(params[:appointment_id])
     @review.appointment = @appointment
     if @review.save
-      redirect_to appointment_path(@appointment)
+      redirect_to fixer_details_path(@appointment.fixer)
     else
       render :new
     end
