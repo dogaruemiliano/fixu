@@ -7,7 +7,6 @@ flatpickr(".datepicker", {
   minuteIncrement: 10,
   minDate: "today",
   defaultDate: new Date()
-
 });
 flatpickr(".timepicker", {
   enableTime: true,

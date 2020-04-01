@@ -18,9 +18,11 @@
         <% @upcoming_appointments.each do |appointment| %>
           <tr>
             <td>
-              <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                <span style="opacity: 0.7;"><em><%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
-              </p>
+              <a href=<%= appointment_path(appointment) %>>
+                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
+                  <span style="opacity: 0.7;"><em><%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                </p>
+              </a>
             </td>
           </tr>
         <% end %>
@@ -37,10 +39,13 @@
                 </p>
               </a>
               <% if @user == current_user %>
-                <%= link_to '', data: { toggle: "modal", target: "#reviewModal-#{appointment.id}" } do %> <button class="btn btn-ghost" style="font-size: 12px; margin: 6px 12px;">Write<br>review</button> <% end %>
-                <div class="modal fade" id="reviewModal-<%= appointment.id %>" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-                  <%= render 'reviews/form', appointment: appointment, review: @review %>
-                </div>
+                <% if appointment.reviews.any? %>
+                <% else %>
+                  <%= link_to '', data: { toggle: "modal", target: "#reviewModal-#{appointment.id}" } do %> <button class="btn btn-ghost" id="review-<%= appointment.id %>" style="font-size: 12px; margin: 6px 12px;">Write<br>review</button> <% end %>
+                  <div class="modal fade" id="reviewModal-<%= appointment.id %>" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <%= render 'reviews/form', appointment: appointment, review: @review %>
+                  </div>
+                <% end %>
               <% end %>
             </td>
           </tr>

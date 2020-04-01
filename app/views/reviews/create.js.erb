@@ -8,12 +8,17 @@ function closeModal() {
   buttons.forEach( button =>
     button.click()
   );
+}
 
+function removeButton() {
+  const button = document.querySelector('#review-<%= @appointment.id %>');
+  button.remove();
 }
 
 <% if @review.errors.any? %>
   refreshForm('<%= j render "reviews/form", appointment: @appointment, review: @review %>');
 <% else %>
   closeModal();
+  removeButton();
   refreshForm('<%= j render "reviews/form", appointment: @appointment, review: Review.new %>');
 <% end %>
