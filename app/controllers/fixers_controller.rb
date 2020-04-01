@@ -39,19 +39,19 @@ class FixersController < ApplicationController
     @categories = Category.all
     @specialities = @fixer.specialities
 
-
     if @fixer.start_time.hour <= 9
       @starting_hour = "0#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
     else
       @starting_hour = "#{@fixer.start_time.hour}:#{@fixer.start_time.min}0"
     end
-    @ending_hour = "#{@fixer.end_time.hour}:#{@fixer.end_time.min}0"
-  end
+      @ending_hour = "#{@fixer.end_time.hour}:#{@fixer.end_time.min}0"
+    end
 
   def appointments
     @appointments = @fixer.appointments
-    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time >= Date.today}
-    @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < Date.today}
+    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time > DateTime.now}.reverse
+    @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < DateTime.now}.reverse
+    @cancelled_appointments = @appointments.select{|appointment| appointment.status == "cancelled"}.reverse
   end
 
   private
