@@ -1,0 +1,19 @@
+function refreshForm(innerHTML) {
+  const form = document.getElementById('reviewModal-<%= @appointment.id %>');
+  form.innerHTML = innerHTML;
+}
+
+function closeModal() {
+  const buttons = document.querySelectorAll('.close');
+  buttons.forEach( button =>
+    button.click()
+  );
+
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "reviews/form", appointment: @appointment, review: @review %>');
+<% else %>
+  closeModal();
+  refreshForm('<%= j render "reviews/form", appointment: @appointment, review: Review.new %>');
+<% end %>

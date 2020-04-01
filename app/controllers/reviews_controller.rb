@@ -1,15 +1,29 @@
 class ReviewsController < ApplicationController
 
   before_action :set_review, only: :destroy
+  def new
+    @review = Review.new
+  end
 
   def create
     @review = Review.new(review_params)
     @appointment = Appointment.find(params[:appointment_id])
     @review.appointment = @appointment
     if @review.save
-      redirect_to appointment_path(@appointment)
+      respond_to do |format|
+        format.html { redirect_to booking_path(@booking) }
+        format.js
+      end
     else
-      render :new
+      @user = @appointment.user
+      @appointments = current_user.appointments
+      @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time >= Date.today}.reverse
+      @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < Date.today}.reverse
+      @cancelled_appointments = @appointments.select{|appointment| appointment.status == "cancelled"}.reverse
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
     end
   end
 
