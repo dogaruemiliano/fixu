@@ -56,7 +56,7 @@
                   <% if speciality.problem.category == category %>
                     <li data-speciality-id="<%= speciality.id %>" class="d-flex justify-content-between"><p><%= speciality.problem.content %></p>
                       <% if speciality.fixer.user == current_user %>
-                        <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost', method: :delete, remote: true, data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
+                        <div><%= link_to "Remove", speciality_path(speciality), class: 'btn btn-ghost mt-1', method: :delete, remote: true, data: { confirm: "Are you sure to delete this speciality?"} %></div> </li>
                       <% end %>
                   <% end %>
                 <% end %>

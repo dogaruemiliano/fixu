@@ -344,16 +344,10 @@ specialities_data = [
     problem_id: [4, 7, 14, 17, 18, 23, 25, 26, 28, 29, 30, 31, 34, 35, 36, 43, 44, 45, 46, 47, 48, 55, 56, 57, 60]
   }
 ]
-appointment_data = [
 
-]
-review_data = [
-
-]
 puts "*" * 60
 puts "Seeding started"
 puts "=" * 60
-
 puts "-" * 60
 puts "Destroying models"
 puts "-" * 30
@@ -370,9 +364,7 @@ puts "Destroyed all Appointment models"
 puts "-" * 30
 puts "Destroyed all previous models"
 puts "-" * 60
-
 puts "=" * 60
-
 puts "-" * 60
 puts "Creating users"
 puts "-" * 30
@@ -395,7 +387,7 @@ User.first(9).each do |user|
   fixer.user = user
   fixer.save!
   data_index += 1
-  puts "\ttCreated fixer from user with email: #{fixer.user.email}"
+  puts "\tCreated fixer from user with email: #{fixer.user.email}"
 end
 puts "-" * 30
 puts "Done creating fixer"
@@ -405,7 +397,6 @@ puts "-" * 60
 
 puts "Creating categories"
 puts "-" * 30
-
 
 categories_data.each do |category_data|
   category = Category.create(name: category_data[:name])
@@ -419,15 +410,12 @@ categories_data.each do |category_data|
   puts
 end
 
-
 puts "-" * 30
 puts "Done creating categories"
 puts "-" * 60
 
-
 puts "Creating specialities"
 puts "-" * 30
-
 
 specialities_data.each do |speciality_data|
   speciality_data[:problem_id].each do |problem_id|
@@ -439,6 +427,114 @@ end
 puts "-" * 30
 puts "Done creating specialities"
 puts "-" * 60
+
+puts "Creating appointments"
+puts "-" * 30
+
+Appointment.create(time: DateTime.new(2020, 02, 12, 12, 00, 0), fixer_id: 1, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 1, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 13, 15, 00, 0), fixer_id: 2, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 2, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 14, 18, 00, 0), fixer_id: 3, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 5, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 15, 14, 00, 0), fixer_id: 4, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 6, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 15, 16, 00, 0), fixer_id: 5, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 13, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 16, 13, 00, 0), fixer_id: 6, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 12, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 16, 17, 00, 0), fixer_id: 7, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 7, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 18, 12, 30, 0), fixer_id: 8, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 15, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 18, 15, 00, 0), fixer_id: 9, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 4, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 19, 19, 30, 0), fixer_id: 1, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 17, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 20, 15, 20, 0), fixer_id: 2, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 25, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 20, 18, 00, 0), fixer_id: 3, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 21, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 21, 9, 40, 0), fixer_id: 4, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 16, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 22, 8, 10, 0), fixer_id: 5, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 23, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 22, 14, 00, 0), fixer_id: 6, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 33, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 02, 26, 12, 00, 0), fixer_id: 7, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 22, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 1, 16, 00, 0), fixer_id: 8, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 18, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 2, 17, 00, 0), fixer_id: 9, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 26, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 3, 12, 00, 0), fixer_id: 1, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 27, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 6, 13, 00, 0), fixer_id: 2, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 11, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 8, 15, 00, 0), fixer_id: 3, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 14, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 11, 12, 00, 0), fixer_id: 4, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 24, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 12, 10, 00, 0), fixer_id: 5, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 23, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 12, 15, 20, 0), fixer_id: 6, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 28, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 15, 12, 50, 0), fixer_id: 7, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 37, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 17, 13, 00, 0), fixer_id: 8, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 30, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 18, 16, 00, 0), fixer_id: 9, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 31, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 19, 12, 40, 0), fixer_id: 1, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 33, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 20, 16, 50, 0), fixer_id: 2, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 34, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 21, 9, 30, 0), fixer_id: 3, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 38, address: "Plaça de Catalunya, Barcelona", latitude:  41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 21, 12, 20, 0), fixer_id: 4, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 40, address: "Plaça de Catalunya, Barcelona", latitude:  41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 22, 14, 30, 0), fixer_id: 5, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 55, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 23, 10, 20, 0), fixer_id: 6, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 41, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 23, 14, 50, 0), fixer_id: 7, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 43, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 25, 15, 20, 0), fixer_id: 8, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 49, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 25, 17, 00, 0), fixer_id: 9, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 44, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 26, 18, 00, 0), fixer_id: 1, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 50, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 26, 19, 00, 0), fixer_id: 2, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 51, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 28, 12, 00, 0), fixer_id: 3, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 45, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 29, 13, 00, 0), fixer_id: 4, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 54, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 30, 15, 00, 0), fixer_id: 5, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 56, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 31, 9, 00, 0), fixer_id: 6, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 57, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 03, 31, 17, 30, 0), fixer_id: 7, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 19, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 04, 1, 12, 30, 0), fixer_id: 8, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 59, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 04, 1, 12, 30, 0), fixer_id: 9, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 60, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+
+
+puts "-" * 30
+puts "Done creating appointments"
+puts "-" * 60
+
+puts "Creating reviews"
+puts "-" * 30
+
+puts "-" * 30
+puts "Done creating reviews"
+puts "-" * 60
+
+Review.create(rating: 3, content: "Problem fixed but late on time", appointment_id: 1)
+Review.create(rating: 4, content: "Great experience but little bit expensive", appointment_id: 2)
+Review.create(rating: 5, content: "Perfect!!", appointment_id: 3)
+Review.create(rating: 4, content: "It was okay", appointment_id: 4)
+Review.create(rating: 3, content: "Too expensive!", appointment_id: 5)
+Review.create(rating: 2, content: "Nothing fixed and charged money", appointment_id: 6)
+Review.create(rating: 5, content: "Superb!!", appointment_id: 7)
+Review.create(rating: 4, content: "Would hire this fixer again!", appointment_id: 8)
+Review.create(rating: 4, content: "Problem solved!", appointment_id: 9)
+Review.create(rating: 3, content: "20 minutes late for the appointment", appointment_id: 10)
+Review.create(rating: 5, content: "Highly recommended", appointment_id: 11)
+Review.create(rating: 4, content: "Best experience", appointment_id: 12)
+Review.create(rating: 2, content: "Poor performance", appointment_id: 13)
+Review.create(rating: 4, content: "No more headache!", appointment_id: 14)
+Review.create(rating: 2, content: "Fixer was late and made problem worse", appointment_id: 15)
+Review.create(rating: 5, content: "Best fixer I've ever met", appointment_id: 16)
+Review.create(rating: 3, content: "Took too much time", appointment_id: 17)
+Review.create(rating: 4, content: "Just so good", appointment_id: 18)
+Review.create(rating: 4, content: "Coooool!", appointment_id: 19)
+Review.create(rating: 5, content: "Best fixer Avalon!", appointment_id: 20)
+Review.create(rating: 2, content: "Didn't like the service", appointment_id: 21)
+Review.create(rating: 3, content: "At least problem is solved", appointment_id: 22)
+Review.create(rating: 4, content: "Cool experience", appointment_id: 23)
+Review.create(rating: 4, content: "No worry anymore!", appointment_id: 24)
+Review.create(rating: 5, content: "Definitely repeating again!!", appointment_id: 25)
+Review.create(rating: 4, content: "Okish", appointment_id: 26)
+Review.create(rating: 3, content: "So so", appointment_id: 27)
+Review.create(rating: 4, content: "Recommended!", appointment_id: 28)
+Review.create(rating: 5, content: "Good service, great smile", appointment_id: 29)
+Review.create(rating: 2, content: "Overpriced!", appointment_id: 30)
+Review.create(rating: 3, content: "Not on time but problem fixed", appointment_id: 31)
+Review.create(rating: 4, content: "Great fixer", appointment_id: 32)
+Review.create(rating: 1, content: "Didn't show up on time and ignoring my call", appointment_id: 33)
+Review.create(rating: 3, content: "Problem not completely fixed", appointment_id: 34)
+Review.create(rating: 5, content: "Sooo coool!", appointment_id: 35)
+Review.create(rating: 3, content: "Took more time than I was told", appointment_id: 36)
+Review.create(rating: 3, content: "Thank you", appointment_id: 37)
+Review.create(rating: 5, content: "Couldn't been better", appointment_id: 38)
+Review.create(rating: 3, content: "All fixed!", appointment_id: 39)
+Review.create(rating: 4, content: "Fixed everything!", appointment_id: 40)
+Review.create(rating: 4, content: "Sooo happy!", appointment_id: 41)
+Review.create(rating: 3, content: "Charging too much for such a service", appointment_id: 42)
+Review.create(rating: 4, content: "Nothing to complain", appointment_id: 43)
+Review.create(rating: 3, content: "Satisfying", appointment_id: 44)
+Review.create(rating: 5, content: "Fanny is the best!", appointment_id: 45)
+
 
 puts "=" * 60
 puts "Seeding ended"
