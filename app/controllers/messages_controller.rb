@@ -4,21 +4,34 @@ class MessagesController < ApplicationController
   def index
     @messages = @appointment.messages
     @new_message = Message.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def create
-   @message = Message.new(message_params)
-   @message.appointment = @appointment
-   @message.user = current_user
-   if @message.save
-    redirect_to appointment_messages_path(@appointment)
-  else
-    # to be done in Ajax
-    raise
-    @messages = @appointment.messages
-    @new_message = @message
-    render :index
-  end
+    @message = Message.new(message_params)
+    @message.appointment = @appointment
+    @message.user = current_user
+    if @message.save
+    # redirect_to appointment_messages_path(@appointment)
+      respond_to do |format|
+        format.html { redirect_to appointment_messages_path(@appointment) }
+        format.js
+      end
+    else
+      # to be done in Ajax
+      #raise
+      @messages = @appointment.messages
+      @new_message = @message
+      # render :index
+      respond_to do |format|
+          format.html { render :index }
+          format.js
+      end
+    end
   end
 
   private

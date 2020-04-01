@@ -8,34 +8,15 @@
       <% end %>
     </div>
     <div class="col-12 chat-box">
-      <% @messages.each do |message| %>
-        <% if message.user == current_user %>
-          <div class="col-8 offset-4">
-            <div class="chat-bubble-mine">
-              <p><%= message.content%></p>
-            </div>
-          </div>
-        <% else %>
-          <div class="col-8">
-            <div class="chat-bubble">
-              <p><%= message.content%></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+      <div id="messages">
+        <%= render 'messages/list', messages: @messages %>
+      </div>
     </div>
     <div class="col-12">
-      <%= simple_form_for [@appointment, @new_message] do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <textarea rows="1" class="form-control text required" name="message[content]" id="message_content" placeholder="Share more details..."></textarea>
-        <div class="col-8 offset-2 mt-4">
-          <%= f.submit "Send", class: 'btn btn-lg'%>
-        </div>
-      <% end %>
+      <%= render 'messages/form', appointment: @appointment, new_message: @new_message %>
     </div>
   </div>
 </div>
 
 
-
+<%= link_to "Refresh", appointment_messages_path(@appointment), remote: true, id: "refresh", class: "d-none" %>

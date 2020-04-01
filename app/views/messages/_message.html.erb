@@ -1,0 +1,14 @@
+
+<% if message.user == current_user %>
+  <div class="col-8 offset-4 message">
+    <div class="chat-bubble-mine">
+      <p><%= message.content%></p>
+    </div>
+  </div>
+<% else %>
+  <div class="col-8 message">
+    <div class="chat-bubble">
+      <p><%= message.content%></p>
+    </div>
+  </div>
+<% end %>
