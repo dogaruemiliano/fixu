@@ -3,9 +3,11 @@
     <div class="col-12">
       <% if @fixer.user == current_user %>
         <h2>My details</h2>
+        <p class="text-center" style="color: #04316C;"><%= @fixer.rating_avg %><% @fixer.rating_avg.round.times { %> <i class="fas fa-star"></i> <% } %></p>
         <div class="col-4 offset-4 text-center"><%= link_to 'Edit', edit_fixer_path(@fixer), class: 'btn btn-ghost' %></div>
       <% else %>
         <h2><%= @fixer.user.full_name %>'s details</h2>
+        <p class="text-center" style="color: #04316C;"><%= @fixer.rating_avg %><% @fixer.rating_avg.round.times { %> <i class="fas fa-star"></i> <% } %></p>
       <% end %>
       <table>
         <tr>
@@ -25,33 +27,35 @@
       </table>
       <table>
         <tr>
-          <th><p>Reviews<% if @fixer.reviews.any? %> (<%= @fixer.reviews.count %>)<% end %></p></th>
+          <th>
+            <p>Reviews<% if @fixer.reviews.any? %> (<%= @fixer.reviews.count %>)<% end %></p>
+          </th>
         </tr>
         <% if @fixer.reviews.any? %>
           <% @fixer.reviews.reverse.first(2).each do |review| %>
             <tr>
               <% if review.appointment.user == current_user %>
-                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 4px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="font-size: 16px; flex: 1 0 30%;"><%= review.content %></p>
+                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 6px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="flex: 1 0 30%;"><%= review.content %></p>
                     <div style="flex: 0 0 20%;"><%= link_to "Delete", review_path(review), class: 'btn btn-ghost px-1', method: :delete, remote: true, data: { confirm: "Are you sure to delete this review?"} %></div>
                 </td>
               <% else %>
-                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 4px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="font-size: 16px; flex: 1 0 30%;"><%= review.content %></p></td>
+                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 6px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="flex: 1 0 30%;"><%= review.content %></p></td>
               <% end %>
             </tr>
           <% end %>
           <% @fixer.reviews.reverse.drop(2).each do |review| %>
             <tr class="hidden-review" style="display: none;">
               <% if review.appointment.user == current_user %>
-                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 4px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="font-size: 16px; flex: 1 0 30%;"><%= review.content %></p>
+                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 6px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="flex: 1 0 30%;"><%= review.content %></p>
                     <div style="flex: 0 0 20%;"><%= link_to "Delete", review_path(review), class: 'btn btn-ghost px-1', method: :delete, remote: true, data: { confirm: "Are you sure to delete this review?"} %></div>
                 </td>
               <% else %>
-                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 4px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="font-size: 16px; flex: 1 0 30%;"><%= review.content %></p></td>
+                <td data-review-id="<%= review.id %>" class="d-flex m-1"><div style="margin-top: 6px; flex: 0 0 25%;"><% review.rating.times { %> <i class="fas fa-star"></i> <% } %></div> <p style="flex: 1 0 30%;"><%= review.content %></p></td>
               <% end %>
             </tr>
           <% end %>
           <tr>
-            <td class="d-flex justify-content-center"><button id="more" style="color: #04316C;">See more</button></td>
+            <td class="d-flex justify-content-center"><a class="my-1" id="more" style="color: #04316C;">See more</a></td>
           </tr>
         <% else %>
           <tr>
@@ -123,7 +127,7 @@
 <script>
   const moreBtn = document.getElementById('more');
   console.log(moreBtn);
-  moreBtn.addEventListener('click', event => {
+  moreBtn.addEventListener('click', (event) => {
     console.log(event.currentTarget.innerText);
     if (event.currentTarget.innerText === "See less") {
       event.currentTarget.innerText = "See more"
