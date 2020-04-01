@@ -17,8 +17,11 @@ class AppointmentsController < ApplicationController
 
     @marker = {
       lat: @appointment.latitude,
-      lng: @appointment.longitude
+      lng: @appointment.longitude,
+      image_url: helpers.asset_url('handyman.jpg')
     }
+
+    @review = Review.new
   end
 
   def new
@@ -82,6 +85,7 @@ class AppointmentsController < ApplicationController
   def fixer
     problem = @appointment.problem
     @fixers = Fixer.joins(:specialities).where(specialities: {problem: problem})
+    @fixers_price =  Fixer.joins(:specialities).where(specialities: {problem: problem}).order('price_cents')
   end
 
   private

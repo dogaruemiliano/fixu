@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h2>Edit my details</h2>
+      <%= simple_form_for([@user, @fixer]) do |f| %>
+        <%= f.input :start_time, as: :string, input_html: {class: "timepicker"} %>
+        <%= f.input :end_time, as: :string, input_html: {class: "timepicker"} %>
+        <%= f.input :price_cents, as: :integer, label: 'Price per hour'%>
+        <%= f.button :submit, "Become a fixer", class: 'btn-lg mt-4'%>
+      <% end %>
+    </div>
+  </div>
+</div>

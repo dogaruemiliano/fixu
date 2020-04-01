@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_135551) do
+ActiveRecord::Schema.define(version: 2020_03_31_223121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(version: 2020_03_31_135551) do
     t.index ["category_id"], name: "index_problems_on_category_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+  end
+
   create_table "specialities", force: :cascade do |t|
     t.bigint "fixer_id"
     t.bigint "problem_id"
@@ -126,6 +135,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_135551) do
   add_foreign_key "messages", "appointments"
   add_foreign_key "messages", "users"
   add_foreign_key "problems", "categories"
+  add_foreign_key "reviews", "appointments"
   add_foreign_key "specialities", "fixers"
   add_foreign_key "specialities", "problems"
 end
