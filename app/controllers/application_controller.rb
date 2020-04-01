@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   private
 
   def persist_last_visited_path
-    unless request.path == '/users/sign_in' || request.path == '/users/sign_up' || request.path == '/users/password' || request.path == '/users/sign_out' || request.path == '/users/confirm_password)'
+    unless request.path == '/users/sign_in'
       session[:last_visited_path] = request.path
     end
   end
