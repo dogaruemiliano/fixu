@@ -10,13 +10,20 @@ class ReviewsController < ApplicationController
     @appointment = Appointment.find(params[:appointment_id])
     @review.appointment = @appointment
     if @review.save
-      redirect_to fixer_details_path(@appointment.fixer)
+      respond_to do |format|
+        format.html { redirect_to booking_path(@booking) }
+        format.js
+      end
     else
       @user = @appointment.user
       @appointments = current_user.appointments
       @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time >= Date.today}.reverse
       @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < Date.today}.reverse
-      render 'users/show'
+      @cancelled_appointments = @appointments.select{|appointment| appointment.status == "cancelled"}.reverse
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
     end
   end
 
