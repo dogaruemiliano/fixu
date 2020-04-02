@@ -40,7 +40,13 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      if @appointment.fixer
+      if @appointment.fixer && @appointment.status == "cancelled"
+        if @appointment.fixer.user == current_user
+          redirect_to fixer_appointments_path(@appointment.fixer)
+        else
+          redirect_to user_path(@appointment.user)
+        end
+      elsif @appointment.fixer
         @appointment.amount_cents = @appointment.fixer.price_cents* @appointment.problem.duration
         @appointment.save
         session = Stripe::Checkout::Session.create(

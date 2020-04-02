@@ -1,34 +1,41 @@
 <div class="container my-4">
   <div class="row">
-    <div class="col-12">
-      <h2>All set to fix!</h2>
-      <p class="text-center">Your chosen fixer is</p>
-    </div>
-    <div class="col-12">
-      <div class="card-sq text-center">
-        <div class="fixer-avatar">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{@appointment.fixer.user.lewagon_username}", class: "avatar" %>
-        </div>
-        <div class="fixer-detail">
-          <p><strong><%= @appointment.fixer.user.full_name %></strong></p>
-          <p><%= @appointment.fixer.rating_avg %><% @appointment.fixer.rating_avg.round.times { %> <i class="fas fa-star"></i> <% } %></p>
-        </div>
-        <div class="fixer-btn">
-          <%= link_to "#{@appointment.fixer.user.first_name}'s profile", fixer_details_path(@appointment.fixer), class: 'btn btn-ghost profile' %>
+    <% if @appointment.status == "cancelled" %>
+      <div class="col-12">
+        <h2>Sorry this appointment has been cancelled!</h2>
+      </div>
+    <% elsif @appointment.user == current_user %>
+      <div class="col-12">
+        <h2>All set to fix!</h2>
+        <p class="text-center">Your chosen fixer is</p>
+      </div>
+      <div class="col-12">
+        <div class="card-sq text-center">
+          <div class="fixer-avatar">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{@appointment.fixer.user.lewagon_username}", class: "avatar" %>
+          </div>
+          <div class="fixer-detail">
+            <p><strong><%= @appointment.fixer.user.full_name %></strong></p>
+            <p><%= @appointment.fixer.rating_avg %><% @appointment.fixer.rating_avg.round.times { %> <i class="fas fa-star"></i> <% } %></p>
+          </div>
+          <div class="fixer-btn">
+            <%= link_to "#{@appointment.fixer.user.first_name}'s profile", fixer_details_path(@appointment.fixer), class: 'btn btn-ghost profile' %>
+          </div>
         </div>
       </div>
-    </div>
+    <% elsif @appointment.fixer.user == current_user %>
+      <div class="col-12">
+        <h2>Your next appointment has been confirmed!</h2>
+      </div>
+    <% end %>
     <div class="col-12">
       <table>
         <tr>
           <th><% if current_user == @appointment.user %><p>Your appointment with <%= @appointment.fixer.user.first_name %></p> <% else %> <p>Your appointment with <%= @appointment.user.first_name %> <% end %> </th>
         </tr>
         <tr>
-          <td><p><strong>Problem:</strong> <%= @appointment.problem.content %></p></td>
-        </tr>
-        <tr>
           <td>
-            <p><strong>Date:</strong> <%= @day %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p>
+            <p><strong>Date:</strong> <% if @day <= 9 %>0<%= @day %><% else %><%= @day %><% end %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p>
           </td>
         </tr>
         <tr>
@@ -45,7 +52,10 @@
         <tr>
           <td><p><strong>Location:</strong> <%= @appointment.address %></p></td>
         </tr>
-        <% if @appointment.comment != nil %>
+        <tr>
+          <td><p><strong>Problem:</strong> <%= @appointment.problem.content %></p></td>
+        </tr>
+        <% if (@appointment.comment != "") && (@appointment.comment != nil) %>
           <tr>
             <td><p><strong>Comment:</strong> <%= @appointment.comment %></p></td>
           </tr>
@@ -58,17 +68,19 @@
           <% end %>
         <% end %>
       </table>
-      <div
-        id="map"
-        style="width: 100%;
-        height: 300px;
-        margin-bottom: 15px;"
-        data-marker="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+      <% if @appointment.fixer.user == current_user && @appointment.status == "confirmed" %>
+        <div
+          id="map"
+          style="width: 100%;
+          height: 300px;
+          margin-bottom: 15px;"
+          data-marker="<%= @marker.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+      <% end %>
     </div>
     <div class="col-12">
-      <% if @appointment.time > DateTime.now %>
+      <% if @appointment.time > DateTime.now && @appointment.status == "confirmed" %>
         <% if @appointment.user == current_user %>
           <%= link_to "Chat now with #{@appointment.fixer.user.first_name}", appointment_messages_path(@appointment), class: 'btn btn-lg' %>
         <% else %>

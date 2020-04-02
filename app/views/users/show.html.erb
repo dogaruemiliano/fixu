@@ -18,55 +18,67 @@
     </div>
     <div class="col-12 lists">
       <table>
-        <% @upcoming_appointments.each do |appointment| %>
-          <tr>
-            <td>
-              <a href=<%= appointment_path(appointment) %>>
-                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
-                </p>
-              </a>
-            </td>
-          </tr>
+        <% if @upcoming_appointments.any? %>
+          <% @upcoming_appointments.each do |appointment| %>
+            <tr>
+              <td>
+                <a href=<%= appointment_path(appointment) %>>
+                  <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                  </p>
+                </a>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td><p style="color: #04316C; opacity: 0.7;">No upcoming appointment</p></td></tr>
         <% end %>
       </table>
     </div>
     <div class="col-12 lists" style="display: none;">
       <table>
-        <% @past_appointments.each do |appointment| %>
-          <tr>
-            <td class="d-flex justify-content-between">
-              <a href=<%= appointment_path(appointment) %>>
-                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
-                </p>
-              </a>
-              <% if @user == current_user %>
-                <% if appointment.reviews.any? %>
-                <% else %>
-                  <%= link_to '', data: { toggle: "modal", target: "#reviewModal-#{appointment.id}" } do %> <button class="btn btn-ghost" id="review-<%= appointment.id %>" style="font-size: 12px; margin: 6px 12px;">Write<br>review</button> <% end %>
-                  <div class="modal fade" id="reviewModal-<%= appointment.id %>" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-                    <%= render 'reviews/form', appointment: appointment, review: @review %>
-                  </div>
+        <% if @past_appointments.any? %>
+          <% @past_appointments.each do |appointment| %>
+            <tr>
+              <td class="d-flex justify-content-between">
+                <a href=<%= appointment_path(appointment) %>>
+                  <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                  </p>
+                </a>
+                <% if @user == current_user %>
+                  <% if appointment.reviews.any? %>
+                  <% else %>
+                    <%= link_to '', data: { toggle: "modal", target: "#reviewModal-#{appointment.id}" } do %> <button class="btn btn-ghost" id="review-<%= appointment.id %>" style="font-size: 12px; margin: 6px 12px;">Write<br>review</button> <% end %>
+                    <div class="modal fade" id="reviewModal-<%= appointment.id %>" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                      <%= render 'reviews/form', appointment: appointment, review: @review %>
+                    </div>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td><p style="color: #04316C; opacity: 0.7;">No past appointment</p></td></tr>
         <% end %>
       </table>
     </div>
     <div class="col-12 lists" style="display: none;">
       <table>
-        <% @cancelled_appointments.each do |appointment| %>
-          <tr>
-            <td>
-              <a href=<%= appointment_path(appointment) %>>
-                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
-                </p>
-              </a>
-            </td>
-          </tr>
+        <% if @cancelled_appointments.any? %>
+          <% @cancelled_appointments.each do |appointment| %>
+            <tr>
+              <td>
+                <a href=<%= appointment_path(appointment) %>>
+                  <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.user.first_name %><br>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                  </p>
+                </a>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td><p style="color: #04316C; opacity: 0.7;">No cancelled appointment</p></td></tr>
         <% end %>
       </table>
     </div>

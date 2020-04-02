@@ -48,10 +48,9 @@ class FixersController < ApplicationController
     end
 
   def appointments
-    @appointments = @fixer.appointments
-    @upcoming_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time > DateTime.now}.reverse
-    @past_appointments = @appointments.select{|appointment| appointment.status == "confirmed" && appointment.time < DateTime.now}.reverse
-    @cancelled_appointments = @appointments.select{|appointment| appointment.status == "cancelled"}.reverse
+    @upcoming_appointments = Appointment.where(["status = ? AND time >= ? AND fixer_id = ?", "confirmed", DateTime.now + (2/24.0), current_user.fixer.id]).reverse
+    @past_appointments = Appointment.where(["status = ? AND time < ? AND fixer_id = ?", "confirmed", DateTime.now + (2/24.0), current_user.fixer.id]).reverse
+    @cancelled_appointments = Appointment.where(["status = ? AND fixer_id = ? ", "cancelled", current_user.fixer.id]).reverse
   end
 
   private
