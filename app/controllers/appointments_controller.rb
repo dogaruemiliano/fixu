@@ -15,6 +15,10 @@ class AppointmentsController < ApplicationController
       lng: @appointment.longitude,
       image_url: helpers.asset_url('handyman.jpg')
     }
+    if @appointment.status == 'pending'
+      @appointment.status = "confirmed"
+      @appointment.save
+    end
   end
 
   def new

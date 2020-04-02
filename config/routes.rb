@@ -33,5 +33,4 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
