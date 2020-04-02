@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
     @appointments = current_user.appointments
 
-    @upcoming_appointments = Appointment.where(["status = ? AND time >= ?", "confirmed", DateTime.now]).reverse
-    @past_appointments = Appointment.where(["status = ? AND time < ?", "confirmed", DateTime.now]).reverse
+    @upcoming_appointments = Appointment.where(["status = ? AND time >= ?", "confirmed", DateTime.now + (2/24.0)]).reverse
+    @past_appointments = Appointment.where(["status = ? AND time < ?", "confirmed", DateTime.now + (2/24.0)]).reverse
     @cancelled_appointments = Appointment.where(["status = ?", "confirmed"]).reverse
+
   end
 end
