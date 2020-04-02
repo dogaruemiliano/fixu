@@ -24,7 +24,7 @@
               <td>
                 <a href=<%= appointment_path(appointment) %>>
                   <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
                   </p>
                 </a>
               </td>
@@ -43,7 +43,7 @@
               <td class="d-flex justify-content-between">
                 <a href=<%= appointment_path(appointment) %>>
                   <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
                   </p>
                 </a>
                 <% if @user == current_user %>
@@ -71,7 +71,7 @@
               <td>
                 <a href=<%= appointment_path(appointment) %>>
                   <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.user.first_name %><br>
-                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                    <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.day %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <% if appointment.time.hour <= 9 %>0<%= appointment.time.hour %><% else %><%= appointment.time.hour %><% end %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
                   </p>
                 </a>
               </td>
