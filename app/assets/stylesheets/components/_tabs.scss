@@ -6,8 +6,8 @@
 .tabs-underlined .tab-underlined {
   color: $dark-blue;
   padding: 8px;
-  margin-right: 32px;
   opacity: .4;
+  margin-right: 4px;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 4px solid transparent;
@@ -19,4 +19,5 @@
 
 .tabs-underlined p {
   margin-bottom: 0;
+  font-size: 16px;
 }

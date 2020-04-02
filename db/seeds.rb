@@ -313,11 +313,11 @@ specialities_data = [
   },
 
   { fixer_id: 2,
-    problem_id: [1, 2, 3, 4, 6, 8, 10, 11, 12, 20, 25, 26, 27, 32, 33, 34, 35, 36, 40, 42, 50, 51, 52, 53, 59]
+    problem_id: [1, 2, 3, 4, 6, 8, 10, 11, 12, 17, 20, 25, 26, 27, 32, 33, 34, 35, 36, 40, 42, 50, 51, 52, 53, 59]
   },
 
   { fixer_id: 3,
-    problem_id: [2, 5, 6, 9, 11, 13, 14, 15, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47, 54, 59]
+    problem_id: [2, 5, 6, 9, 11, 13, 14, 15, 17, 19, 21, 22, 23, 24, 28, 37, 38, 39, 41, 43, 44, 45, 46, 47, 54, 59]
   },
 
   { fixer_id: 4,
@@ -329,11 +329,11 @@ specialities_data = [
   },
 
   { fixer_id: 6,
-    problem_id: [7, 8, 9, 10, 11, 12, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+    problem_id: [7, 8, 9, 10, 11, 12, 17, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
   },
 
   { fixer_id: 7,
-    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 19, 21, 22, 24, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+    problem_id: [3, 5, 7, 8, 9, 12, 15, 16, 17, 19, 21, 22, 24, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
   },
 
   { fixer_id: 8,
@@ -476,6 +476,9 @@ Appointment.create(time: DateTime.new(2020, 03, 31, 9, 00, 0), fixer_id: 6, user
 Appointment.create(time: DateTime.new(2020, 03, 31, 17, 30, 0), fixer_id: 7, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 19, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
 Appointment.create(time: DateTime.new(2020, 04, 1, 12, 30, 0), fixer_id: 8, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 59, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
 Appointment.create(time: DateTime.new(2020, 04, 1, 12, 30, 0), fixer_id: 9, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 60, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 04, 2, 12, 30, 0), fixer_id: 1, user_id: 10, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 19, address: "Carrer d'Arizala, 57, Barcelona", latitude: 41.3780977, longitude: 2.123918, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 04, 2, 15, 30, 0), fixer_id: 2, user_id: 12, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 59, address: "Carrer d'en Grassot, 101, Barcelona", latitude: 41.4039474, longitude: 2.1669651, amount_cents: 5000)
+Appointment.create(time: DateTime.new(2020, 04, 2, 11, 30, 0), fixer_id: 3, user_id: 11, status: "confirmed", created_at: DateTime.new(2020, 1, 1, 00, 00, 0), updated_at: DateTime.new(2020, 1, 1, 00, 00, 0), problem_id: 60, address: "Plaça de Catalunya, Barcelona", latitude: 41.3874888, longitude: 2.1688077, amount_cents: 5000)
 
 
 puts "-" * 30
@@ -489,7 +492,7 @@ puts "-" * 30
 puts "Done creating reviews"
 puts "-" * 60
 
-Review.create(rating: 3, content: "Problem fixed but late on time", appointment_id: 1)
+Review.create(rating: 4, content: "Problem fixed but late on time", appointment_id: 1)
 Review.create(rating: 4, content: "Great experience but little bit expensive", appointment_id: 2)
 Review.create(rating: 5, content: "Perfect!!", appointment_id: 3)
 Review.create(rating: 4, content: "It was okay", appointment_id: 4)
@@ -501,7 +504,7 @@ Review.create(rating: 4, content: "Problem solved!", appointment_id: 9)
 Review.create(rating: 3, content: "20 minutes late for the appointment", appointment_id: 10)
 Review.create(rating: 5, content: "Highly recommended", appointment_id: 11)
 Review.create(rating: 4, content: "Best experience", appointment_id: 12)
-Review.create(rating: 2, content: "Poor performance", appointment_id: 13)
+Review.create(rating: 3, content: "Poor performance", appointment_id: 13)
 Review.create(rating: 4, content: "No more headache!", appointment_id: 14)
 Review.create(rating: 2, content: "Fixer was late and made problem worse", appointment_id: 15)
 Review.create(rating: 5, content: "Best fixer I've ever met", appointment_id: 16)
@@ -509,7 +512,7 @@ Review.create(rating: 3, content: "Took too much time", appointment_id: 17)
 Review.create(rating: 4, content: "Just so good", appointment_id: 18)
 Review.create(rating: 4, content: "Coooool!", appointment_id: 19)
 Review.create(rating: 5, content: "Best fixer Avalon!", appointment_id: 20)
-Review.create(rating: 2, content: "Didn't like the service", appointment_id: 21)
+Review.create(rating: 3, content: "Didn't like the service", appointment_id: 21)
 Review.create(rating: 3, content: "At least problem is solved", appointment_id: 22)
 Review.create(rating: 4, content: "Cool experience", appointment_id: 23)
 Review.create(rating: 4, content: "No worries anymore!", appointment_id: 24)
@@ -518,21 +521,21 @@ Review.create(rating: 4, content: "Okish", appointment_id: 26)
 Review.create(rating: 3, content: "So so", appointment_id: 27)
 Review.create(rating: 4, content: "Recommended!", appointment_id: 28)
 Review.create(rating: 5, content: "Good service, great smile", appointment_id: 29)
-Review.create(rating: 2, content: "Overpriced!", appointment_id: 30)
+Review.create(rating: 3, content: "Overpriced!", appointment_id: 30)
 Review.create(rating: 3, content: "Not on time but problem fixed", appointment_id: 31)
 Review.create(rating: 4, content: "Great fixer", appointment_id: 32)
 Review.create(rating: 1, content: "Didn't show up on time and ignoring my call", appointment_id: 33)
 Review.create(rating: 3, content: "Problem not completely fixed", appointment_id: 34)
 Review.create(rating: 5, content: "Sooo coool!", appointment_id: 35)
 Review.create(rating: 3, content: "Took more time than I was told", appointment_id: 36)
-Review.create(rating: 3, content: "Thank you", appointment_id: 37)
+Review.create(rating: 4, content: "Thank you", appointment_id: 37)
 Review.create(rating: 5, content: "Couldn't been better", appointment_id: 38)
-Review.create(rating: 3, content: "All fixed!", appointment_id: 39)
+Review.create(rating: 5, content: "All fixed!", appointment_id: 39)
 Review.create(rating: 4, content: "Fixed everything!", appointment_id: 40)
 Review.create(rating: 4, content: "Sooo happy!", appointment_id: 41)
 Review.create(rating: 3, content: "Charging too much for such a service", appointment_id: 42)
 Review.create(rating: 4, content: "Nothing to complain", appointment_id: 43)
-Review.create(rating: 3, content: "Satisfying", appointment_id: 44)
+Review.create(rating: 4, content: "Satisfying", appointment_id: 44)
 Review.create(rating: 5, content: "Fanny is the best!", appointment_id: 45)
 
 

@@ -6,13 +6,13 @@
     <div class="col-12 mt-2">
       <ul class="list-inline tabs-underlined">
         <li>
-          <p class="tab-underlined active">Upcoming</p>
+          <p class="tab-underlined active">Upcoming (<%= @upcoming_appointments.count %>)</p>
         </li>
         <li>
-          <p class="tab-underlined">Past</p>
+          <p class="tab-underlined">Past (<%= @past_appointments.count %>)</p>
         </li>
         <li>
-          <p class="tab-underlined">Cancelled</p>
+          <p class="tab-underlined">Cancelled (<%= @cancelled_appointments.count %>)</p>
         </li>
       </ul>
     </div>
