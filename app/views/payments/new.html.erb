@@ -7,10 +7,20 @@
     <div class="col-12">
       <h2>Checkout summary</h2>
       <div style="margin-top: 4rem;">
-        <h3>Your fixer: <strong style="color: #04316C;"><%= @appointment.fixer.user.full_name %></strong></h3>
+        <table>
+          <tr>
+            <th><h3 class="py-1">Your fixer</h3></th>
+          </tr>
+          <tr><td><h3 class="py-1"><strong style="color: #04316C;"><%= @appointment.fixer.user.full_name %></strong></h3></td></tr>
+        </table>
       </div>
       <div style="margin-top: 2rem;">
-        <h3>Total amount: <strong style="color: #04316C;"><%= humanized_money_with_symbol @appointment.amount %></strong></h3>
+        <table>
+          <tr>
+            <th><h3 class="py-1">Total amount: </h3></th>
+          </tr>
+          <tr><td><h3 class="py-1"><strong style="color: #04316C;"><%= humanized_money_with_symbol @appointment.amount %></strong></h3></td></tr>
+        </table>
       </div>
       <div style="margin-top: 8rem;">
         <button id="pay" class="btn btn-lg">Proceed to checkout</button>
