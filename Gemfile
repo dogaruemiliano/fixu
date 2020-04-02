@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'cloudinary'
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
 gem 'geocoder'
 
 gem 'faker'

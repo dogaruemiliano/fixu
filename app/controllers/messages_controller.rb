@@ -16,17 +16,13 @@ class MessagesController < ApplicationController
     @message.appointment = @appointment
     @message.user = current_user
     if @message.save
-    # redirect_to appointment_messages_path(@appointment)
       respond_to do |format|
         format.html { redirect_to appointment_messages_path(@appointment) }
         format.js
       end
     else
-      # to be done in Ajax
-      #raise
       @messages = @appointment.messages
       @new_message = @message
-      # render :index
       respond_to do |format|
           format.html { render :index }
           format.js

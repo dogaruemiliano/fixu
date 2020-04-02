@@ -2,6 +2,7 @@ function refreshList(innerHTML){
   const list = document.getElementById('messages');
   list.innerHTML = innerHTML;
   list.querySelector('.message:last-child').scrollIntoView();
+  console.log("test refresh");
 }
 
   refreshList('<%= j render "messages/list", messages: @messages %>');
