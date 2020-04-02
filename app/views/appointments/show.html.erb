@@ -34,30 +34,30 @@
           <th><% if current_user == @appointment.user %><p>Your appointment with <%= @appointment.fixer.user.first_name %></p> <% else %> <p>Your appointment with <%= @appointment.user.first_name %> <% end %> </th>
         </tr>
         <tr>
-          <td>
-            <p><strong>Date:</strong> <% if @day <= 9 %>0<%= @day %><% else %><%= @day %><% end %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p>
+          <td class="d-flex">
+            <div style="flex: 0 0 30%"><p><strong>Date</strong></p></div><div style="flex: 0 0 70%"><p><% if @day <= 9 %>0<%= @day %><% else %><%= @day %><% end %>/<% if @month <= 9 %>0<%= @month %><% else %><%= @month %><% end %>/<%= @year %></p></div>
           </td>
         </tr>
         <tr>
-          <td>
-            <p><strong>Time:</strong> <% if @hour <= 9 %>0<%= @hour %><% else %><%= @hour %><% end %>:<% if @min <= 9 %>0<%= @min %><% else %><%= @min %><% end %></p>
+          <td class="d-flex">
+            <div style="flex: 0 0 30%"><p><strong>Time</strong></p></div><div style="flex: 0 0 70%"><p><% if @hour <= 9 %>0<%= @hour %><% else %><%= @hour %><% end %>:<% if @min <= 9 %>0<%= @min %><% else %><%= @min %><% end %></p></div>
           </td>
         </tr>
         <tr>
-          <td><p><strong>Duration:</strong> <%= @appointment.problem.duration %> <% if @appointment.problem.duration == 1 %>Hour<% elsif @appointment.problem.duration >= 2 %>Hours<% end %></p></td>
+          <td class="d-flex"><div style="flex: 0 0 30%"><p><strong>Duration</strong></p></div><div style="flex: 0 0 70%"><p><%= @appointment.problem.duration %> <% if @appointment.problem.duration == 1 %>Hour<% elsif @appointment.problem.duration >= 2 %>Hours<% end %></p></div></td>
         </tr>
         <tr>
-          <td><p><strong>Price:</strong> <%= humanized_money_with_symbol(@appointment.amount) %></p></td>
+          <td class="d-flex"><div style="flex: 0 0 30%"><p><strong>Price</strong></p></div><div style="flex: 0 0 70%"><p><%= humanized_money_with_symbol(@appointment.amount) %></p></div></td>
         </tr>
         <tr>
-          <td><p><strong>Location:</strong> <%= @appointment.address %></p></td>
+          <td class="d-flex"><div style="flex: 0 0 30%"><p><strong>Location</strong></p></div><div style="flex: 0 0 70%"><p><%= @appointment.address %></p></div></td>
         </tr>
         <tr>
-          <td><p><strong>Problem:</strong> <%= @appointment.problem.content %></p></td>
+          <td class="d-flex"><div style="flex: 0 0 30%"><p><strong>Problem</strong></p></div><div style="flex: 0 0 70%"><p><%= @appointment.problem.content %></p></div></td>
         </tr>
         <% if (@appointment.comment != "") && (@appointment.comment != nil) %>
           <tr>
-            <td><p><strong>Comment:</strong> <%= @appointment.comment %></p></td>
+            <td class="d-flex"><div style="flex: 0 0 30%"><p><strong>Comment</strong></p></div><div style="flex: 0 0 70%"><p><%= @appointment.comment %></p></div></td>
           </tr>
         <% end %>
         <% if @appointment.photos.attached? %>
