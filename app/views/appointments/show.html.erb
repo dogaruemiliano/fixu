@@ -21,7 +21,7 @@
     <div class="col-12">
       <table>
         <tr>
-          <th><p>Your appointment with <%= @appointment.fixer.user.first_name %></p></th>
+          <th><% if current_user == @appointment.user %><p>Your appointment with <%= @appointment.fixer.user.first_name %></p> <% else %> <p>Your appointment with <%= @appointment.user.first_name %> <% end %> </th>
         </tr>
         <tr>
           <td><p><strong>Problem:</strong> <%= @appointment.problem.content %></p></td>
@@ -45,6 +45,18 @@
         <tr>
           <td><p><strong>Location:</strong> <%= @appointment.address %></p></td>
         </tr>
+        <% if @appointment.comment != nil %>
+          <tr>
+            <td><p><strong>Comment:</strong> <%= @appointment.comment %></p></td>
+          </tr>
+        <% end %>
+        <% if @appointment.photos.attached? %>
+          <% @appointment.photos.each do |photo| %>
+            <tr>
+              <td><%= cl_image_tag photo.key, style:'width:100%; padding-left:12px; padding-right:12px;', crop: :fill %></td>
+            </tr>
+          <% end %>
+        <% end %>
       </table>
       <div
         id="map"
