@@ -10,7 +10,11 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to edit_user_registration_path, class: "nav-link" do %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.lewagon_username}", class: "avatar" %> Welcome <%= current_user.full_name %> <% if current_user.fixer %> <span style="color: #FACF39;">(fixer)</span><% end %>
+            <% if current_user.lewagon_username == nil %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/random}", class: "avatar" %> Welcome <%= current_user.full_name %> <% if current_user.fixer %> <span style="color: #FACF39;">(fixer)</span><% end %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.lewagon_username}", class: "avatar" %> Welcome <%= current_user.full_name %> <% if current_user.fixer %> <span style="color: #FACF39;">(fixer)</span><% end %>
+            <% end %>
           <% end %>
         </li>
         <li class="nav-item">

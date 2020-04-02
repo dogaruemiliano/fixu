@@ -8,4 +8,12 @@ class Fixer < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   monetize :price_cents
+
+  def rating_avg
+    ratings = []
+    reviews.each do |review|
+      ratings << review.rating
+    end
+    return (ratings.reduce(:+).to_f / ratings.size).round(1)
+  end
 end

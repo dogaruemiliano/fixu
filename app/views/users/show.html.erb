@@ -11,16 +11,19 @@
         <li>
           <p class="tab-underlined">Past</p>
         </li>
+        <li>
+          <p class="tab-underlined">Cancelled</p>
+        </li>
       </ul>
     </div>
-    <div class="col-12" id="upcoming">
+    <div class="col-12 lists">
       <table>
         <% @upcoming_appointments.each do |appointment| %>
           <tr>
             <td>
               <a href=<%= appointment_path(appointment) %>>
                 <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                  <span style="opacity: 0.7;"><em><%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
                 </p>
               </a>
             </td>
@@ -28,14 +31,14 @@
         <% end %>
       </table>
     </div>
-    <div class="col-12" id="past" style="display: none;">
+    <div class="col-12 lists" style="display: none;">
       <table>
         <% @past_appointments.each do |appointment| %>
           <tr>
             <td class="d-flex justify-content-between">
               <a href=<%= appointment_path(appointment) %>>
                 <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
-                  <span style="opacity: 0.7;"><em><%= appointment.time.day %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
                 </p>
               </a>
               <% if @user == current_user %>
@@ -52,31 +55,48 @@
         <% end %>
       </table>
     </div>
+    <div class="col-12 lists" style="display: none;">
+      <table>
+        <% @cancelled_appointments.each do |appointment| %>
+          <tr>
+            <td>
+              <a href=<%= appointment_path(appointment) %>>
+                <p style="font-size: 16px;"><%= appointment.problem.category.name %> - <%= appointment.fixer.user.first_name %><br>
+                  <span style="opacity: 0.7;"><em><% if appointment.time.day <= 9 %>0<%= appointment.time.day %><% else %><%= appointment.time.month %><% end %>/<% if appointment.time.month <= 9 %>0<%= appointment.time.month %><% else %><%= appointment.time.month %><% end %>/<%= appointment.time.year %> <%= appointment.time.hour %>:<% if appointment.time.min <= 9 %>0<%= appointment.time.min %><% else %><%= appointment.time.min %><% end %></em></span>
+                </p>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 
 <script>
-  const tabs = document.querySelectorAll('.tab-underlined');
-  console.log(tabs);
-  const upcoming = document.getElementById('upcoming');
-  const past = document.getElementById('past');
-  tabs.forEach( tab =>
-    tab.addEventListener("click", (event) => {
+  const tabs = document.querySelectorAll('.tab-underlined')
+  const lists = document.querySelectorAll('.lists')
+  const entries = function*(iterable) {
+    let i = 0;
+    for (item of iterable) {
+      yield [i++, item]
+    }
+  }
+  const showBlock = index => {
+    for (const [blockIndex, block] of entries(lists)) {
+      block.style.display = blockIndex === index ? 'block' : 'none'
+    }
+  }
+  showBlock(0)
+  for (const [tabIndex, tab] of entries(tabs)) {
+    tab.addEventListener('click', ev => {
+      ev.preventDefault()
+      showBlock(tabIndex)
       const active = document.querySelector('.active');
       event.currentTarget.classList.toggle('active');
       if (active !== null) {
         active.classList.remove('active');
       }
-      if (upcoming.style.display === "none") {
-        upcoming.style.display = "block";
-      } else {
-        upcoming.style.display = "none";
-      }
-      if (past.style.display === "none") {
-        past.style.display = "block";
-      } else {
-        past.style.display = "none";
-      }
     })
-  );
+  }
 </script>
