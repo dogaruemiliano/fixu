@@ -3,7 +3,7 @@ function refreshMessages() {
   if (refreshButton) {
     window.setInterval(function() {
       refreshButton.click();
-    },500)
+    },2000)
   }
 }
 

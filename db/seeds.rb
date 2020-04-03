@@ -52,9 +52,9 @@ users_data = [
   },
 
   {
-    email: "louis@gmail.com",
+    email: "louise@gmail.com",
     password: "123456",
-    first_name: "Louis",
+    first_name: "Louise",
     last_name: "Darche",
     address: "Carrer dels Almogàvers, 122, Barcelona",
     phone_number: Faker::PhoneNumber.phone_number,
@@ -509,15 +509,15 @@ Review.create(rating: 4, content: "No more headache!", appointment_id: 14)
 Review.create(rating: 2, content: "Fixer was late and made problem worse", appointment_id: 15)
 Review.create(rating: 5, content: "Best fixer I've ever met", appointment_id: 16)
 Review.create(rating: 3, content: "Took too much time", appointment_id: 17)
-Review.create(rating: 4, content: "Just so good", appointment_id: 18)
-Review.create(rating: 4, content: "Coooool!", appointment_id: 19)
+Review.create(rating: 5, content: "Just so good", appointment_id: 18)
+Review.create(rating: 5, content: "Coooool!", appointment_id: 19)
 Review.create(rating: 5, content: "Best fixer Avalon!", appointment_id: 20)
 Review.create(rating: 3, content: "Didn't like the service", appointment_id: 21)
 Review.create(rating: 3, content: "At least problem is solved", appointment_id: 22)
 Review.create(rating: 4, content: "Cool experience", appointment_id: 23)
-Review.create(rating: 4, content: "No worries anymore!", appointment_id: 24)
+Review.create(rating: 5, content: "No worries anymore!", appointment_id: 24)
 Review.create(rating: 5, content: "Definitely repeating again!!", appointment_id: 25)
-Review.create(rating: 4, content: "Okish", appointment_id: 26)
+Review.create(rating: 3, content: "Okish", appointment_id: 26)
 Review.create(rating: 3, content: "So so", appointment_id: 27)
 Review.create(rating: 4, content: "Recommended!", appointment_id: 28)
 Review.create(rating: 5, content: "Good service, great smile", appointment_id: 29)
